@@ -4,6 +4,5 @@ Anforderungen in ein Klassendesign ohne Vererbung umsetzen und mit einer objekto
 
 - - -
 
-Hier gehts zu:
-- [den Kompetenzen des Moduls](./Kompetenzen)
-- [den Projekten des Moduls](./Projekte)
+- [Zu den Kompetenzen](./Kompetenzen)
+- [Zu den Projekten](./Projekte)
