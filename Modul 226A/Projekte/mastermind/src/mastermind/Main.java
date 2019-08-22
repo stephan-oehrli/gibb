@@ -17,6 +17,8 @@ public class Main {
 		System.out.println("Geben Sie etwas ein:");
 		String userInput = getUserInput();
 		System.out.println(userInput);
+		String[] a = "abcd".split("");
+		System.out.println(a[1]);
 	}
 
 	public static String getUserInput() {
