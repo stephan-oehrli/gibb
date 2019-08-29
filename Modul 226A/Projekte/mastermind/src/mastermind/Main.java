@@ -5,17 +5,71 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class Main {
-	
+
 	private static String[] secretCode;
 	private static int numberOfAttempts;
-	
+
 	public static void main(String[] args) {
 		secretCode = generateSecretCode();
 		displayInstructions();
+		String[] userCode = getUserCode();
+		while (!isCodeCorrect(userCode)) {
+			displayInstructions();
+			userCode = getUserCode();
+		}
 		displayGameOverMessage();
+	}
+
+	private static boolean isCodeCorrect(String[] userCode) {
+		List<String> secretCodeArray = Arrays.asList(secretCode);
+		int correctColors = 0;
+		int correctPositions = 0;
+		for (int i = 0; i < userCode.length; i++) {
+			if (secretCodeArray.contains(userCode[i])) {
+				correctColors++;
+				if (secretCodeArray.get(i).equals(userCode[i])) {
+					correctPositions++;
+				}
+			}
+		}
+		if (correctColors == userCode.length && correctPositions == userCode.length) {
+			return true;
+		} else {
+			System.out.println(
+					"Anzahl korrekte Farben: " + correctColors + "\nAnzahl korrekte Positionen: " + correctPositions);
+			return false;
+		}
+	}
+
+	private static String[] getUserCode() {
+		String userInput = readUserInput();
+		while (!isInputValid(userInput)) {
+			System.out.println(
+					"Falsche Eingabe.\nDer Code darf nur je einen der 4 Buchstaben aus der Menge {r,g,b,y,s,w} enthalten.\nVersuchen Sie es erneut:");
+			userInput = readUserInput();
+		}
+		numberOfAttempts++;
+		return userInput.toLowerCase().split("");
+	}
+
+	private static boolean isInputValid(String input) {
+		ArrayList<String> colors = new ArrayList<>(Arrays.asList("r", "g", "b", "y", "s", "w"));
+		if (input.length() != 4) {
+			return false;
+		}
+		String[] splittedInput = input.toLowerCase().split("");
+		for (String letter : splittedInput) {
+			if (colors.contains(letter)) {
+				colors.remove(letter);
+			} else {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	private static String readUserInput() {
@@ -39,12 +93,15 @@ public class Main {
 		}
 		return secretCode;
 	}
-	
+
 	private static void displayInstructions() {
-		System.out.println("Geben Sie einen Versuchscode mit vier Buchstaben aus der Menge {r,g,b,y,s,w} ein");
+		System.out.println("Geben Sie einen Versuchscode mit vier Buchstaben aus der Menge {r,g,b,y,s,w} ein: ");
 	}
 
 	private static void displayGameOverMessage() {
-		System.out.println("Spiel beendet. Geheimcode war " + String.join(",", secretCode) + ". Anzahl Versuche: " + numberOfAttempts);
+		System.out.println("Gratulation! Sie haben es geschafft.");
+		System.out.println("Spiel beendet. Geheimcode war " + String.join("", secretCode) + ". Anzahl Versuche: "
+				+ numberOfAttempts);
 	}
+
 }
