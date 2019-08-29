@@ -15,15 +15,21 @@ namespace M120Projekt
         {
             Debug.Print("--- DemoACreate ---");
             // KlasseA
-            Data.KlasseA klasseA1 = new Data.KlasseA();
-            klasseA1.TextAttribut = "Artikel 1";
-            klasseA1.DatumAttribut = DateTime.Today;
+            Data.Artikel klasseA1 = new Data.Artikel();
+
+            klasseA1.Name = "Artikel 1";
+            klasseA1.Bezeichnung = "3GHZ CPU";
+            klasseA1.Hersteller = "ACER";
+            klasseA1.Preis = 1299.90;
+            klasseA1.LetzterWareneingang = DateTime.Today;
+            klasseA1.AnLager = true;
+
             Int64 klasseA1Id = klasseA1.Erstellen();
             Debug.Print("Artikel erstellt mit Id:" + klasseA1Id);
         }
         public static void DemoACreateKurz()
         {
-            Data.KlasseA klasseA2 = new Data.KlasseA { TextAttribut = "Artikel 2", BooleanAttribut = true, DatumAttribut = DateTime.Today };
+            Data.Artikel klasseA2 = new Data.Artikel { Name = "Artikel 2", Bezeichnung = "Beschreibung Artikel 2", Hersteller = "Hersteller 2", Preis = 999.95, LetzterWareneingang = DateTime.Today, AnLager = true };
             Int64 klasseA2Id = klasseA2.Erstellen();
             Debug.Print("Artikel erstellt mit Id:" + klasseA2Id);
         }
@@ -33,9 +39,9 @@ namespace M120Projekt
         {
             Debug.Print("--- DemoARead ---");
             // Demo liest alle
-            foreach (Data.KlasseA klasseA in Data.KlasseA.LesenAlle())
+            foreach (Data.Artikel klasseA in Data.Artikel.LesenAlle())
             {
-                Debug.Print("Artikel Id:" + klasseA.KlasseAId + " Name:" + klasseA.TextAttribut);
+                Debug.Print("Artikel Id:" + klasseA.Artikelnummer + " Name:" + klasseA.Name);
             }
         }
         // Update
@@ -43,15 +49,15 @@ namespace M120Projekt
         {
             Debug.Print("--- DemoAUpdate ---");
             // KlasseA ändert Attribute
-            Data.KlasseA klasseA1 = Data.KlasseA.LesenID(1);
-            klasseA1.TextAttribut = "Artikel 1 nach Update";
+            Data.Artikel klasseA1 = Data.Artikel.LesenID(1);
+            klasseA1.Name = "Artikel 1 nach Update";
             klasseA1.Aktualisieren();
         }
         // Delete
         public static void DemoADelete()
         {
             Debug.Print("--- DemoADelete ---");
-            Data.KlasseA.LesenID(1).Loeschen();
+            Data.Artikel.LesenID(1).Loeschen();
             Debug.Print("Artikel mit Id 1 gelöscht");
         }
         #endregion
