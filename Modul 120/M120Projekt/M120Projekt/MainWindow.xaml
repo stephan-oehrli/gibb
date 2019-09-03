@@ -5,8 +5,75 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:M120Projekt"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" MinHeight="544" Height="544" MinWidth="800" Width="800">
+    <StackPanel VerticalAlignment="Stretch">
+        <Grid Background="#FF049395" Height="64">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="64" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="64" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Menu" />
+            <Label Grid.Column="1" Content="Artikel bearbeiten" FontSize="20" VerticalAlignment="Center" Padding="16" Foreground="White" />
+            <Button Grid.Column="2" Content="Zurück" />
+        </Grid>
+
+        <Grid Background="#FFC8E4F0" Margin="72, 16" MinHeight="320">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="32" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="32" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="16" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="32" />
+                <RowDefinition Height="8" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="32" />
+                <RowDefinition Height="8" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="32" />
+                <RowDefinition Height="8" />
+                <RowDefinition Height="32" />
+                <RowDefinition Height="32" />
+                <RowDefinition Height="32" />
+                <RowDefinition Height="8" />
+                <RowDefinition Height="32" />
+                <RowDefinition Height="16" />
+            </Grid.RowDefinitions>
+            <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="10" Content="Artikelnummer" FontSize="10" FontWeight="Bold" VerticalAlignment="Bottom"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="10" Text="1234567" FontSize="16" VerticalContentAlignment="Center"/>
+            <Label Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="5" Content="Hersteller" FontSize="10" FontWeight="Bold" VerticalAlignment="Bottom"/>
+            <ListBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="5" FontSize="16" VerticalContentAlignment="Center"/>
+            <Label Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="5" Content="Name" FontSize="10" FontWeight="Bold" VerticalAlignment="Bottom"  Margin="16, 0, 0, 0"/>
+            <TextBox Grid.Row="5" Grid.Column="6" Grid.ColumnSpan="5" Text="Aspire 5 A515" FontSize="16" VerticalContentAlignment="Center" Margin="16, 0, 0, 0"/>
+            <Label Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="10" Content="Bezeichnung" FontSize="10" FontWeight="Bold" VerticalAlignment="Bottom"/>
+            <TextBox Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="10" Text="15.60'', Full HD, Intel Core i5, 8GB RAM" FontSize="16" VerticalContentAlignment="Center"/>
+            <Label Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="6" Content="CHF" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+            <TextBox Grid.Row="10" Grid.Column="8" Grid.ColumnSpan="3" Text="699.-" FontSize="16" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
+            <Label Grid.Row="12" Grid.Column="1" Grid.ColumnSpan="6" Content="Artikel an Lager" FontSize="16" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+            <CheckBox Grid.Row="12" Grid.Column="10"  VerticalContentAlignment="Center" HorizontalAlignment="Right" IsChecked="True"/>
+            <Label Grid.Row="14" Grid.Column="1" Grid.ColumnSpan="6" Content="Letzter Wareneingang" FontSize="16" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+            <TextBox Grid.Row="14" Grid.Column="8" Grid.ColumnSpan="3" Text="22.08.2019" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
+        </Grid>
+        <Grid Margin="72, 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="ABBRECHEN" FontSize="14" Padding="6"/>
+            <Button Grid.Column="2" Content="ÄNDERUNGEN SPEICHERN" FontSize="14" Padding="6"/>
+        </Grid>
+    </StackPanel>
 </Window>

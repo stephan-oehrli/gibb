@@ -29,7 +29,7 @@ namespace M120Projekt
         }
         public static void DemoACreateKurz()
         {
-            Data.Artikel klasseA2 = new Data.Artikel { Name = "Artikel 2", Bezeichnung = "Beschreibung Artikel 2", Hersteller = "Hersteller 2", Preis = 999.95, LetzterWareneingang = DateTime.Today, AnLager = true };
+            Data.Artikel klasseA2 = new Data.Artikel { Name = "Artikel 3", Bezeichnung = "Beschreibung Artikel 3", Hersteller = "Hersteller 3", Preis = 1999.95, LetzterWareneingang = DateTime.Today, AnLager = true };
             Int64 klasseA2Id = klasseA2.Erstellen();
             Debug.Print("Artikel erstellt mit Id:" + klasseA2Id);
         }
