@@ -15,6 +15,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		secretCode = generateSecretCode();
+		System.out.println(String.join("", secretCode));
 		displayInstructions();
 		String[] userCode = getUserCode();
 		while (!isCodeCorrect(userCode)) {
