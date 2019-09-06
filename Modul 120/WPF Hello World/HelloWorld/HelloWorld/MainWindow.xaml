@@ -1,19 +1,18 @@
-﻿<Window x:Class="HelloWorld.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HelloWorld"
+        xmlns:UserControls="clr-namespace:HelloWorld.UserControls" x:Class="HelloWorld.MainWindow"
         mc:Ignorable="d"
         Title="Hallo Welt" Height="500.0" Width="900" ShowInTaskbar="False" Cursor="Hand" WindowStartupLocation="CenterScreen" Topmost="True">
-    <WrapPanel>
-        <Rectangle Fill="Red" Width="150" Height="150" Margin="16"/>
-        <Rectangle Fill="Red" Width="150" Height="150" Margin="16"/>
-        <Rectangle Fill="Red" Width="150" Height="150" Margin="16"/>
-        <Rectangle Fill="Red" Width="150" Height="150" Margin="16"/>
-        <Rectangle Fill="Red" Width="150" Height="150" Margin="16"/>
-        <Rectangle Fill="Red" Width="150" Height="150" Margin="16"/>
-        <Rectangle Fill="Red" Width="150" Height="150" Margin="16"/>
-        <Rectangle Fill="Red" Width="150" Height="150" Margin="16"/>
-    </WrapPanel>
+    <Border Padding="24">
+        <StackPanel>
+            <Label Content="Hallo Welt!" FontWeight="Bold" FontSize="32" />
+            <Label Content="Hier Klicken!" MouseDown="Label_MouseDown"/>
+            <UserControls:Incrementer HorizontalAlignment="Center" />
+            <UserControls:Incrementer HorizontalAlignment="Center" />
+        </StackPanel>
+    </Border>
 </Window>

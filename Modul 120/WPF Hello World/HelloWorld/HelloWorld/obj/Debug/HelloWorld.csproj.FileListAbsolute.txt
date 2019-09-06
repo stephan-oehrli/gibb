@@ -13,3 +13,6 @@ C:\Users\vmadmin\Desktop\git\gibb\Modul 120\WPF Hello World\HelloWorld\HelloWorl
 C:\Users\vmadmin\Desktop\git\gibb\Modul 120\WPF Hello World\HelloWorld\HelloWorld\obj\Debug\HelloWorld.csproj.CoreCompileInputs.cache
 C:\Users\vmadmin\Desktop\git\gibb\Modul 120\WPF Hello World\HelloWorld\HelloWorld\obj\Debug\HelloWorld.exe
 C:\Users\vmadmin\Desktop\git\gibb\Modul 120\WPF Hello World\HelloWorld\HelloWorld\obj\Debug\HelloWorld.pdb
+C:\Users\vmadmin\Desktop\git\gibb\Modul 120\WPF Hello World\HelloWorld\HelloWorld\obj\Debug\UserControls\Incrementer.g.cs
+C:\Users\vmadmin\Desktop\git\gibb\Modul 120\WPF Hello World\HelloWorld\HelloWorld\obj\Debug\UserControls\Incrementer.baml
+C:\Users\vmadmin\Desktop\git\gibb\Modul 120\WPF Hello World\HelloWorld\HelloWorld\obj\Debug\GeneratedInternalTypeHelper.g.cs

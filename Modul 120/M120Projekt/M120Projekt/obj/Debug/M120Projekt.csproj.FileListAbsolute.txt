@@ -58,3 +58,7 @@ C:\Users\vmadmin\Desktop\git\gibb\Modul 120\M120Projekt\M120Projekt\obj\Debug\M1
 C:\Users\vmadmin\Desktop\git\gibb\Modul 120\M120Projekt\M120Projekt\obj\Debug\M120Projekt.csproj.CopyComplete
 C:\Users\vmadmin\Desktop\git\gibb\Modul 120\M120Projekt\M120Projekt\obj\Debug\M120Projekt.exe
 C:\Users\vmadmin\Desktop\git\gibb\Modul 120\M120Projekt\M120Projekt\obj\Debug\M120Projekt.pdb
+C:\Users\vmadmin\Desktop\git\gibb\Modul 120\M120Projekt\M120Projekt\obj\Debug\App.baml
+C:\Users\vmadmin\Desktop\git\gibb\Modul 120\M120Projekt\M120Projekt\obj\Debug\UserControls\EditArticle.g.cs
+C:\Users\vmadmin\Desktop\git\gibb\Modul 120\M120Projekt\M120Projekt\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\vmadmin\Desktop\git\gibb\Modul 120\M120Projekt\M120Projekt\obj\Debug\UserControls\EditArticle.baml
