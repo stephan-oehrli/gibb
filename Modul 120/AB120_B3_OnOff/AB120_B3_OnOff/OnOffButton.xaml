@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="AB120_B3_OnOff.OnOffButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AB120_B3_OnOff"
+             mc:Ignorable="d" 
+             d:DesignHeight="33" d:DesignWidth="70"
+             >
+    <Grid MouseDown="Grid_MouseDown" Cursor="Hand">
+        <Rectangle x:Name="Umrahmung" HorizontalAlignment="Left" Height="33" Width="70" Stroke="#3393FF" VerticalAlignment="Top" RadiusX="15" RadiusY="15" StrokeThickness="2" />
+        <Ellipse x:Name="Kreis" HorizontalAlignment="Left" Height="25" Width="25" Margin="5, 4, 0, 0" Stroke="#3393FF" VerticalAlignment="Top" Fill="#3393FF"/>
+        <Label x:Name="Beschriftung" Foreground="#3393FF" FontWeight="Bold" Content="ON" Margin="30,4,0,0" />
+    </Grid>
+</UserControl>
