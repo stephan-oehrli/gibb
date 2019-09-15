@@ -4,19 +4,81 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:M120Projekt"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="544" Height="544" MinWidth="800" Width="800">
-    <StackPanel VerticalAlignment="Stretch">
-        <Grid Background="#FF049395" Height="64">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="64" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="64" />
-            </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="Menu" />
-            <Label Grid.Column="1" Content="Artikel bearbeiten" FontSize="20" VerticalAlignment="Center" Padding="16" Foreground="White" />
-            <Button Grid.Column="2" Content="Zurück" />
+        Title="MainWindow" MinHeight="544" Height="544" MinWidth="800" Width="800" Foreground="White">
+    <Window.Resources>
+        <Storyboard x:Key="MenuOpen">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="64" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="200" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="MenuClose">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="200" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="64" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuOpen}" />
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuClose}" />
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid>
+        <Grid Height="64" VerticalAlignment="Top" Background="#FF0AA4AE" >
+            <TextBlock Text="HOME" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22"/>
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Text="Stephan Oehrli" VerticalAlignment="Center" FontSize="18"/>
+                <materialDesign:PopupBox Margin="10" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
+                    <StackPanel Width="150">
+                        <Button Content="Settings" />
+                        <Button Content="Help" />
+                    </StackPanel>
+                </materialDesign:PopupBox>
+            </StackPanel>
         </Grid>
-        <UserControls:EditArticle />
-    </StackPanel>
+        <Grid x:Name="GridMenu" Width="64" HorizontalAlignment="Left" Background="#FF0AA4AE">
+            <StackPanel>
+                <Grid Height="64" Background="Black">
+                    <Button x:Name="ButtonCloseMenu" Width="64" Height="64" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonCloseMenu_Click">
+                        <materialDesign:PackIcon Foreground="White" Kind="ArrowLeft" Width="24" Height="24" />
+                    </Button>
+                    <Button x:Name="ButtonOpenMenu" Width="64" Height="64" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonOpenMenu_Click">
+                        <materialDesign:PackIcon Foreground="White" Kind="Menu" Width="24" Height="24"/>
+                    </Button>
+                </Grid>
+                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListViewItem Height="64" Foreground="White" Background="#FF078992" Cursor="Hand">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="ViewDashboard" Width="24" Height="24" Margin="13 0 0 0" VerticalAlignment="Center"/>
+                            <TextBlock Text="Artikel" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="64" Foreground="White" Background="#FF078992" Cursor="Hand">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="UserGroup" Width="24" Height="24" Margin="13 0 0 0" VerticalAlignment="Center"/>
+                            <TextBlock Text="Kunden" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="64" Foreground="White" Background="#FF078992" Cursor="Hand">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="FileDocumentBoxPlus" Width="24" Height="24" Margin="13 0 0 0" VerticalAlignment="Center"/>
+                            <TextBlock Text="Beleg erfassen" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="64" Foreground="White" Background="#FF078992" Cursor="Hand">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Money100" Width="24" Height="24" Margin="13 0 0 0" VerticalAlignment="Center"/>
+                            <TextBlock Text="Umsatz" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
+        </Grid>
+    </Grid>
 </Window>

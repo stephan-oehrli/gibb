@@ -60,5 +60,9 @@ C:\Users\vmadmin\Desktop\git\gibb\Modul 120\M120Projekt\M120Projekt\obj\Debug\M1
 C:\Users\vmadmin\Desktop\git\gibb\Modul 120\M120Projekt\M120Projekt\obj\Debug\M120Projekt.pdb
 C:\Users\vmadmin\Desktop\git\gibb\Modul 120\M120Projekt\M120Projekt\obj\Debug\App.baml
 C:\Users\vmadmin\Desktop\git\gibb\Modul 120\M120Projekt\M120Projekt\obj\Debug\UserControls\EditArticle.g.cs
-C:\Users\vmadmin\Desktop\git\gibb\Modul 120\M120Projekt\M120Projekt\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\vmadmin\Desktop\git\gibb\Modul 120\M120Projekt\M120Projekt\obj\Debug\UserControls\EditArticle.baml
+C:\Users\vmadmin\Desktop\git\gibb\Modul 120\M120Projekt\M120Projekt\bin\Debug\MaterialDesignColors.dll
+C:\Users\vmadmin\Desktop\git\gibb\Modul 120\M120Projekt\M120Projekt\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\vmadmin\Desktop\git\gibb\Modul 120\M120Projekt\M120Projekt\bin\Debug\MaterialDesignColors.pdb
+C:\Users\vmadmin\Desktop\git\gibb\Modul 120\M120Projekt\M120Projekt\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\vmadmin\Desktop\git\gibb\Modul 120\M120Projekt\M120Projekt\bin\Debug\MaterialDesignThemes.Wpf.xml
