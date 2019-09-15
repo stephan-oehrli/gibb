@@ -26,10 +26,10 @@ namespace M120Projekt
             InitializeComponent();
             ButtonCloseMenu.Visibility = Visibility.Collapsed;
             // Wichtig!
-            Data.Global.context = new Data.Context();
+            //Data.Global.context = new Data.Context();
             // Aufruf diverse APIDemo Methoden
-            APIDemo.DemoACreate();
-            APIDemo.DemoACreateKurz();
+            //APIDemo.DemoACreate();
+            //APIDemo.DemoACreateKurz();
         }
 
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)

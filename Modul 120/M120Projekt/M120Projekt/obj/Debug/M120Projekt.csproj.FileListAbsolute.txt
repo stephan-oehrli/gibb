@@ -66,3 +66,4 @@ C:\Users\vmadmin\Desktop\git\gibb\Modul 120\M120Projekt\M120Projekt\bin\Debug\Ma
 C:\Users\vmadmin\Desktop\git\gibb\Modul 120\M120Projekt\M120Projekt\bin\Debug\MaterialDesignColors.pdb
 C:\Users\vmadmin\Desktop\git\gibb\Modul 120\M120Projekt\M120Projekt\bin\Debug\MaterialDesignThemes.Wpf.pdb
 C:\Users\vmadmin\Desktop\git\gibb\Modul 120\M120Projekt\M120Projekt\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\vmadmin\Desktop\git\gibb\Modul 120\M120Projekt\M120Projekt\obj\Debug\GeneratedInternalTypeHelper.g.cs

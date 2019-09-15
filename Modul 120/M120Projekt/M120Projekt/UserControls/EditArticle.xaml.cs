@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace M120Projekt.UserControls
 {
     /// <summary>
-    /// Interaction logic for EditArticle.xaml
+    /// Interaction logic for EditArticle2.xaml
     /// </summary>
     public partial class EditArticle : UserControl
     {
