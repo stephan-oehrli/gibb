@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:M120Projekt"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="544" Height="544" MinWidth="800" Width="800" Foreground="White">
+        Title="MainWindow" MinHeight="550" Height="550" MinWidth="800" Width="800">
     <Window.Resources>
         <Storyboard x:Key="MenuOpen">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
@@ -31,16 +31,19 @@
     </Window.Triggers>
     <Grid>
         <Grid Height="64" VerticalAlignment="Top" Background="#FF0AA4AE" >
-            <TextBlock Text="HOME" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22"/>
-            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock Text="Stephan Oehrli" VerticalAlignment="Center" FontSize="18"/>
-                <materialDesign:PopupBox Margin="10" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
+            <TextBlock Text="HOME" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" Foreground="White"/>
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right" >
+                <TextBlock Text="Stephan Oehrli" VerticalAlignment="Center" FontSize="18" Foreground="White"/>
+                <materialDesign:PopupBox Margin="10" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Foreground="White">
                     <StackPanel Width="150">
                         <Button Content="Settings" />
                         <Button Content="Help" />
                     </StackPanel>
                 </materialDesign:PopupBox>
             </StackPanel>
+        </Grid>
+        <Grid Margin="64 64 0 0">
+            <UserControls:EditArticle />
         </Grid>
         <Grid x:Name="GridMenu" Width="64" HorizontalAlignment="Left" Background="#FF0AA4AE">
             <StackPanel>
