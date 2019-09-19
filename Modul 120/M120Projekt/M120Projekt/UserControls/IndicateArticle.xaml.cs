@@ -16,23 +16,18 @@ using System.Windows.Shapes;
 namespace M120Projekt.UserControls
 {
     /// <summary>
-    /// Interaction logic for EditArticle2.xaml
+    /// Interaction logic for IndicateArticle.xaml
     /// </summary>
-    public partial class EditArticle : UserControl
+    public partial class IndicateArticle : UserControl
     {
-        public EditArticle()
+        public IndicateArticle()
         {
             InitializeComponent();
         }
 
-        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        private void ButtonEdit_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void BtnCancel_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow.Stage.Content = new IndicateArticle();
+            MainWindow.Stage.Content = new EditArticle();
         }
     }
 }

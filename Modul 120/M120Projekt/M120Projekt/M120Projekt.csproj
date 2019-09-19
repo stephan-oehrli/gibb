@@ -72,6 +72,9 @@
     <Compile Include="UserControls\EditArticle.xaml.cs">
       <DependentUpon>EditArticle.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\IndicateArticle.xaml.cs">
+      <DependentUpon>IndicateArticle.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -89,6 +92,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="UserControls\EditArticle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\IndicateArticle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

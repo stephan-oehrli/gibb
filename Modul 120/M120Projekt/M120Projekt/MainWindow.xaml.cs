@@ -1,4 +1,5 @@
-﻿using System;
+﻿using M120Projekt.UserControls;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -21,9 +22,12 @@ namespace M120Projekt
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static ContentControl Stage;
+
         public MainWindow()
         {
             InitializeComponent();
+            Stage = MyContentControl;
             ButtonCloseMenu.Visibility = Visibility.Collapsed;
             // Wichtig!
             //Data.Global.context = new Data.Context();
@@ -43,5 +47,6 @@ namespace M120Projekt
             ButtonOpenMenu.Visibility = Visibility.Visible;
             ButtonCloseMenu.Visibility = Visibility.Collapsed;
         }
+
     }
 }

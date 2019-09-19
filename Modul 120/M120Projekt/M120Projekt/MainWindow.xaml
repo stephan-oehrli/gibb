@@ -30,21 +30,9 @@
         </EventTrigger>
     </Window.Triggers>
     <Grid>
-        <Grid Height="64" VerticalAlignment="Top" Background="#FF0AA4AE" >
-            <TextBlock Text="HOME" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" Foreground="White"/>
-            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right" >
-                <TextBlock Text="Stephan Oehrli" VerticalAlignment="Center" FontSize="18" Foreground="White"/>
-                <materialDesign:PopupBox Margin="10" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Foreground="White">
-                    <StackPanel Width="150">
-                        <Button Content="Settings" />
-                        <Button Content="Help" />
-                    </StackPanel>
-                </materialDesign:PopupBox>
-            </StackPanel>
-        </Grid>
-        <Grid Margin="64 64 0 0">
-            <UserControls:EditArticle />
-        </Grid>
+        <ContentControl x:Name="MyContentControl" Margin="64 0 0 0">
+            <UserControls:IndicateArticle />
+        </ContentControl>
         <Grid x:Name="GridMenu" Width="64" HorizontalAlignment="Left" Background="#FF0AA4AE">
             <StackPanel>
                 <Grid Height="64" Background="Black">

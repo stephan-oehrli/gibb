@@ -39,7 +39,7 @@ public class KontoTest {
 	}
 	
 	@Test
-	public void verzinsenErlaubteAnzahlTage() {
+	public void verzinsen73Tage() {
 		konto = new Konto(0.1, inhaber);
 		konto.einzahlen(1000);
 		konto.verzinsen(73);
