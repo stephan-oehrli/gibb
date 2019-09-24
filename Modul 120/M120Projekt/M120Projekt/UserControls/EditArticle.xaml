@@ -17,7 +17,7 @@
             </Grid.RowDefinitions>
             <Grid Background="#1908565B">
                 <StackPanel Margin="24, 16, 24, 16">
-                    <TextBox materialDesign:HintAssist.Hint="Artikelnummer" Text="1234567" Style="{StaticResource MaterialDesignFloatingHintTextBox}" BorderBrush="#AE360A" FontSize="16" VerticalContentAlignment="Center" Margin="0 0 0 12"/>
+                    <TextBox x:Name="TextBoxArticleNumber" materialDesign:HintAssist.Hint="Artikelnummer" Style="{StaticResource MaterialDesignFloatingHintTextBox}" BorderBrush="#AE360A" FontSize="16" VerticalContentAlignment="Center" Margin="0 0 0 12"/>
                     <Grid Margin="0 0 0 12">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="160"/>
@@ -57,7 +57,7 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="auto" />
                 </Grid.ColumnDefinitions>
-                <Button x:Name="BtnCancel" Grid.Column="0" FontSize="14" Padding="8 0 10 0" BorderBrush="#FFFF2E00" Background="#FFFF2E00" Click="BtnCancel_Click">
+                <Button x:Name="BtnCancel" Grid.Column="0" FontSize="14" Padding="8 0 10 0" BorderBrush="#FFFF2E00" Background="#FFFF2E00" Click="handleCancel">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="WindowClose" VerticalAlignment="Center" Margin="0 0 4 0" />
                         <TextBlock Text="ABBRECHEN" />

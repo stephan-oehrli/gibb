@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using M120Projekt.Data;
 
 namespace M120Projekt.UserControls
 {
@@ -25,12 +26,23 @@ namespace M120Projekt.UserControls
             InitializeComponent();
         }
 
-        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        public EditArticle(Artikel article)
+        {
+            InitializeComponent();
+            fillInForm(article);
+        }
+
+        private void fillInForm(Artikel article)
+        {
+            TextBoxArticleNumber.Text = article.Artikelnummer.ToString();
+        }
+
+        private void handleSave(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        private void handleCancel(object sender, RoutedEventArgs e)
         {
             MainWindow.Stage.Content = new IndicateArticle();
         }

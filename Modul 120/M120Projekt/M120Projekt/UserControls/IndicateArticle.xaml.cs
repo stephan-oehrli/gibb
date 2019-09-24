@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using M120Projekt.Data;
 
 namespace M120Projekt.UserControls
 {
@@ -25,9 +26,23 @@ namespace M120Projekt.UserControls
             InitializeComponent();
         }
 
-        private void ButtonEdit_Click(object sender, RoutedEventArgs e)
+        private void HandleUpdateArticle(object sender, RoutedEventArgs e)
+        {
+            Artikel dummyArticle = CreateDummyArticle();
+            MainWindow.Stage.Content = new EditArticle(dummyArticle);
+        }
+
+        private void HandleCreateArticle(object sender, RoutedEventArgs e)
         {
             MainWindow.Stage.Content = new EditArticle();
         }
+
+        private Artikel CreateDummyArticle()
+        {
+            Artikel article = new Artikel();
+            article.Artikelnummer = 1234567;
+            return article;
+        }
+
     }
 }
