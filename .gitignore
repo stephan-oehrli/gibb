@@ -3,3 +3,4 @@
 bin/
 [Dd]ebug/
 .vs/
+*.user
