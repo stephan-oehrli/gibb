@@ -35,6 +35,12 @@ namespace M120Projekt.UserControls
         private void fillInForm(Artikel article)
         {
             TextBoxArticleNumber.Text = article.Artikelnummer.ToString();
+            ComboBoxManufacturer.Text = article.Hersteller;
+            TextBoxArticleName.Text = article.Name;
+            TextBoxArticleDescription.Text = article.Bezeichnung;
+            TextBoxPrice.Text = article.Preis.ToString();
+            CheckBoxOnStock.IsChecked = article.AnLager;
+            DatePickerLastArrival.SelectedDate = article.LetzterWareneingang;
         }
 
         private void handleSave(object sender, RoutedEventArgs e)

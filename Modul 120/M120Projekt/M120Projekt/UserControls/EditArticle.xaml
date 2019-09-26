@@ -23,15 +23,15 @@
                             <ColumnDefinition Width="160"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <ComboBox Grid.Column="0" materialDesign:HintAssist.Hint="Hersteller" Style="{StaticResource MaterialDesignFloatingHintComboBox}" BorderBrush="#AE360A" FontSize="16" VerticalContentAlignment="Center">
-                            <ComboBoxItem IsSelected="True">ACER</ComboBoxItem>
+                        <ComboBox x:Name="ComboBoxManufacturer" Grid.Column="0" materialDesign:HintAssist.Hint="Hersteller" Style="{StaticResource MaterialDesignFloatingHintComboBox}" BorderBrush="#AE360A" FontSize="16" VerticalContentAlignment="Center">
+                            <ComboBoxItem>ACER</ComboBoxItem>
                             <ComboBoxItem>ASUS</ComboBoxItem>
                             <ComboBoxItem>HP</ComboBoxItem>
                             <ComboBoxItem>LENOVO</ComboBoxItem>
                         </ComboBox>
-                        <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="Name" Text="Aspire C993" Style="{StaticResource MaterialDesignFloatingHintTextBox}" BorderBrush="#AE360A" FontSize="16" VerticalContentAlignment="Center" Margin="24 0 0 0"/>
+                        <TextBox x:Name="TextBoxArticleName" Grid.Column="1" materialDesign:HintAssist.Hint="Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" BorderBrush="#AE360A" FontSize="16" VerticalContentAlignment="Center" Margin="24 0 0 0"/>
                     </Grid>
-                    <TextBox Text="Intel Core i7 @ 3.2GHz, 16GB RAM, 500GB SSD" materialDesign:HintAssist.Hint="Bezeichnung" Style="{StaticResource MaterialDesignFloatingHintTextBox}" BorderBrush="#AE360A" FontSize="16" VerticalContentAlignment="Center" Margin="0 0 0 24"/>
+                    <TextBox x:Name="TextBoxArticleDescription" materialDesign:HintAssist.Hint="Bezeichnung" Style="{StaticResource MaterialDesignFloatingHintTextBox}" BorderBrush="#AE360A" FontSize="16" VerticalContentAlignment="Center" Margin="0 0 0 24"/>
                     <Grid Margin="0 0 0 12">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="4*"/>
@@ -43,11 +43,11 @@
                             <RowDefinition />
                         </Grid.RowDefinitions>
                         <Label Content="CHF" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-                        <TextBox Grid.Column="1" Text="999.00" materialDesign:HintAssist.Hint="Preis" BorderBrush="#AE360A" FontSize="16" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="40 0 0 0"/>
+                        <TextBox x:Name="TextBoxPrice" Grid.Column="1" materialDesign:HintAssist.Hint="Preis" BorderBrush="#AE360A" FontSize="16" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="40 0 0 0"/>
                         <Label Grid.Row="1" FontSize="16" Content="Artikel an Lager" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 40 0 0"/>
-                        <CheckBox Grid.Row="1" Grid.Column="1" Background="#FF00963C" VerticalContentAlignment="Center" HorizontalAlignment="Right" VerticalAlignment="Bottom" IsChecked="True"/>
+                        <CheckBox x:Name="CheckBoxOnStock" Grid.Row="1" Grid.Column="1" Background="#FF00963C" VerticalContentAlignment="Center" HorizontalAlignment="Right" VerticalAlignment="Bottom" IsChecked="False"/>
                         <Label Grid.Row="2" FontSize="16" Content="Letzter Wareneingang" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-                        <DatePicker Grid.Row="2" Grid.Column="1" SelectedDate="01.01.2019" materialDesign:HintAssist.Hint="Letzter Wareneingang" BorderBrush="#AE360A" FontSize="16" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="40 12 0 0" />
+                        <DatePicker x:Name="DatePickerLastArrival" Grid.Row="2" Grid.Column="1"  BorderBrush="#AE360A" FontSize="16" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="40 12 0 0" />
                     </Grid>
                 </StackPanel>
             </Grid>

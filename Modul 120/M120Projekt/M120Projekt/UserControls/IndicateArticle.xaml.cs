@@ -41,6 +41,12 @@ namespace M120Projekt.UserControls
         {
             Artikel article = new Artikel();
             article.Artikelnummer = 1234567;
+            article.Hersteller = "ACER";
+            article.Name = "Aspire C993";
+            article.Bezeichnung = "Intel Core i7 @ 3.2GHz, 16GB RAM, 500GB SSD";
+            article.Preis = 999.00;
+            article.AnLager = true;
+            article.LetzterWareneingang = DateTime.Parse("01/01/2019");
             return article;
         }
 
