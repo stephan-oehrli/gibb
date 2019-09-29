@@ -28,7 +28,7 @@ namespace M120Projekt.UserControls
 
         private void HandleUpdateArticle(object sender, RoutedEventArgs e)
         {
-            Artikel dummyArticle = CreateDummyArticle();
+            Article dummyArticle = CreateDummyArticle();
             MainWindow.Stage.Content = new EditArticle(dummyArticle);
         }
 
@@ -37,16 +37,16 @@ namespace M120Projekt.UserControls
             MainWindow.Stage.Content = new EditArticle();
         }
 
-        private Artikel CreateDummyArticle()
+        private Article CreateDummyArticle()
         {
-            Artikel article = new Artikel();
-            article.Artikelnummer = 1234567;
-            article.Hersteller = "ACER";
+            Article article = new Article();
+            article.ArticleNumber = 1234567;
+            article.Manufacturer = "ACER";
             article.Name = "Aspire C993";
-            article.Bezeichnung = "Intel Core i7 @ 3.2GHz, 16GB RAM, 500GB SSD";
-            article.Preis = 999.00;
-            article.AnLager = true;
-            article.LetzterWareneingang = DateTime.Parse("01/01/2019");
+            article.Description = "Intel Core i7 @ 3.2GHz, 16GB RAM, 500GB SSD";
+            article.Price = 999.00;
+            article.IsOnStock = true;
+            article.LastArrival = DateTime.Parse("01/01/2019");
             return article;
         }
 

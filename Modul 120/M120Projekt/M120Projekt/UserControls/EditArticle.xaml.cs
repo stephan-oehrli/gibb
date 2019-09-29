@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using M120Projekt.Data;
+using MaterialDesignThemes.Wpf;
 
 namespace M120Projekt.UserControls
 {
@@ -26,30 +27,33 @@ namespace M120Projekt.UserControls
             InitializeComponent();
         }
 
-        public EditArticle(Artikel article)
+        public EditArticle(Article article)
         {
             InitializeComponent();
-            fillInForm(article);
+            TextBlockTitle.Text = "Artikel bearbeiten";
+            FillInForm(article);
         }
 
-        private void fillInForm(Artikel article)
+        private void FillInForm(Article article)
         {
-            TextBoxArticleNumber.Text = article.Artikelnummer.ToString();
-            ComboBoxManufacturer.Text = article.Hersteller;
+            TextBoxArticleNumber.Text = article.ArticleNumber.ToString();
+            ComboBoxManufacturer.Text = article.Manufacturer;
             TextBoxArticleName.Text = article.Name;
-            TextBoxArticleDescription.Text = article.Bezeichnung;
-            TextBoxPrice.Text = article.Preis.ToString();
-            CheckBoxOnStock.IsChecked = article.AnLager;
-            DatePickerLastArrival.SelectedDate = article.LetzterWareneingang;
+            TextBoxArticleDescription.Text = article.Description;
+            TextBoxPrice.Text = article.Price.ToString();
+            CheckBoxOnStock.IsChecked = article.IsOnStock;
+            DatePickerLastArrival.SelectedDate = article.LastArrival;
         }
 
-        private void handleSave(object sender, RoutedEventArgs e)
+        private void HandleSave(object sender, RoutedEventArgs e)
         {
-
+            MainWindow.Stage.Content = new IndicateArticle();
         }
 
-        private void handleCancel(object sender, RoutedEventArgs e)
+        private async void HandleCancel(object sender, RoutedEventArgs e)
         {
+            DialogHostEditArticle.IsOpen = false;
+            await Task.Delay(500);
             MainWindow.Stage.Content = new IndicateArticle();
         }
     }

@@ -13,23 +13,43 @@
         </Style>
     </UserControl.Resources>
     <Grid Background="White">
-        <Grid Height="64" VerticalAlignment="Top" Background="#FF0AA4AE" >
-            <TextBlock Text="ACER Aspire C993" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" Foreground="White"/>
-            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button x:Name="ButtonBack" Background="{x:Null}" BorderBrush="{x:Null}" Height="40" Width="40" Padding="0" Foreground="White" materialDesign:ButtonAssist.CornerRadius="30" Margin="0 0 8 0">
-                    <materialDesign:PackIcon Kind="ArrowLeft" Width="24" Height="24" HorizontalAlignment="Center"/>
-                </Button>
-                <Button x:Name="ButtonCreateArticle" Background="{x:Null}" BorderBrush="{x:Null}" Height="40" Width="40" Padding="0" Foreground="White" materialDesign:ButtonAssist.CornerRadius="30" Margin="0 0 8 0" Click="HandleCreateArticle">
-                    <materialDesign:PackIcon Kind="LibraryAdd" Width="24" Height="24" HorizontalAlignment="Center"/>
-                </Button>
-                <Button x:Name="ButtonUpdateArticle" Background="{x:Null}" BorderBrush="{x:Null}" Height="40" Width="40" Padding="0" Foreground="White" materialDesign:ButtonAssist.CornerRadius="30" Margin="0 0 8 0" Click="HandleUpdateArticle">
-                    <materialDesign:PackIcon Kind="ModeEdit" Width="24" Height="24" HorizontalAlignment="Center"/>
-                </Button>
-                <Button x:Name="ButtonDeleteArticle" Background="{x:Null}" BorderBrush="{x:Null}" Height="40" Width="40" Padding="0" Foreground="White" materialDesign:ButtonAssist.CornerRadius="30" Margin="0 0 8 0">
-                    <materialDesign:PackIcon Kind="Delete" Width="24" Height="24" HorizontalAlignment="Center"/>
-                </Button>
-            </StackPanel>
-        </Grid>
+        <materialDesign:DialogHost BorderBrush="{DynamicResource MaterialDesignDivider}">
+            <materialDesign:DialogHost.DialogContent>
+                <Grid Width="300" Height="150" HorizontalAlignment="Center" >
+                    <StackPanel Orientation="Horizontal" Margin="15">
+                        <materialDesign:PackIcon Kind="Trash" Foreground="{StaticResource PrimaryHueMidBrush}" Width="50" Height="50" />
+                        <TextBlock Foreground="Gray" Width="200" Margin="15 5" TextWrapping="Wrap">
+                            Möchten Sie diesen Artikel wirklich löschen?
+                        </TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="15">
+                        <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Style="{DynamicResource MaterialDesignFlatButton}" Margin="4" VerticalAlignment="Center">
+                            Abbrechen
+                        </Button>
+                        <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Style="{DynamicResource MaterialDesignFlatButton}" Margin="4" VerticalAlignment="Center">
+                            Löschen
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:DialogHost.DialogContent>
+            <Grid Height="64" VerticalAlignment="Top" Background="#FF0AA4AE" >
+                <TextBlock Text="ACER Aspire C993" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" Foreground="White"/>
+                <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button x:Name="ButtonBack" Background="{x:Null}" BorderBrush="{x:Null}" Height="40" Width="40" Padding="0" Foreground="White" materialDesign:ButtonAssist.CornerRadius="30" Margin="0 0 8 0">
+                        <materialDesign:PackIcon Kind="ArrowLeft" Width="24" Height="24" HorizontalAlignment="Center"/>
+                    </Button>
+                    <Button x:Name="ButtonCreateArticle" Background="{x:Null}" BorderBrush="{x:Null}" Height="40" Width="40" Padding="0" Foreground="White" materialDesign:ButtonAssist.CornerRadius="30" Margin="0 0 8 0" Click="HandleCreateArticle">
+                        <materialDesign:PackIcon Kind="LibraryAdd" Width="24" Height="24" HorizontalAlignment="Center"/>
+                    </Button>
+                    <Button x:Name="ButtonUpdateArticle" Background="{x:Null}" BorderBrush="{x:Null}" Height="40" Width="40" Padding="0" Foreground="White" materialDesign:ButtonAssist.CornerRadius="30" Margin="0 0 8 0" Click="HandleUpdateArticle">
+                        <materialDesign:PackIcon Kind="ModeEdit" Width="24" Height="24" HorizontalAlignment="Center"/>
+                    </Button>
+                    <Button x:Name="ButtonDeleteArticle" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" Background="{x:Null}" BorderBrush="{x:Null}" Height="40" Width="40" Padding="0" Foreground="White" materialDesign:ButtonAssist.CornerRadius="30" Margin="0 0 8 0">
+                        <materialDesign:PackIcon Kind="Delete" Width="24" Height="24" HorizontalAlignment="Center"/>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </materialDesign:DialogHost>
         <Grid Margin="24 88 24 24">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
@@ -51,9 +71,9 @@
                             <Label Content="Name" Margin="20 16 0 0" Foreground="#FF555555"/>
                             <TextBlock Grid.Column="1" Text="Aspire C993" Margin="24 0 0 0"/>
                         </StackPanel>
-                        
+
                     </Grid>
-                    <Label Content="Bezeichnung" Margin="-4 16 0 0" Foreground="#FF555555"/>
+                    <Label Content="Beschreibung" Margin="-4 16 0 0" Foreground="#FF555555"/>
                     <TextBlock Grid.Column="0" Text="Intel Core i7 @ 3.2GHz, 16GB RAM, 500GB SSD" VerticalAlignment="Bottom" />
                     <Grid Margin="0 24 0 12">
                         <Grid.ColumnDefinitions>

@@ -47,7 +47,7 @@
                     <ListViewItem Height="64" Foreground="White" Background="#FF078992" Cursor="Hand">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="ViewDashboard" Width="24" Height="24" Margin="13 0 0 0" VerticalAlignment="Center"/>
-                            <TextBlock Text="Artikel" VerticalAlignment="Center" Margin="20 10"/>
+                            <TextBlock Text="Article" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="64" Foreground="White" Background="#FF078992" Cursor="Hand">

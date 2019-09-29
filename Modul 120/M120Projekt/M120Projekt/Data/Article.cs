@@ -9,73 +9,73 @@ using System.Data.Entity;
 
 namespace M120Projekt.Data
 {
-    public class Artikel
+    public class Article
     {
         #region Datenbankschicht
         [Key]
-        public Int64 Artikelnummer { get; set; }
+        public Int64 ArticleNumber { get; set; }
         [Required]
         public String Name { get; set; }
         [Required]
-        public DateTime LetzterWareneingang { get; set; }
+        public DateTime LastArrival { get; set; }
         [Required]
-        public Boolean AnLager { get; set; }
+        public Boolean IsOnStock { get; set; }
         [Required]
-        public String Bezeichnung { get; set; }
+        public String Description { get; set; }
         [Required]
-        public Double Preis { get; set; }
+        public Double Price { get; set; }
         [Required]
-        public String Hersteller { get; set; }
+        public String Manufacturer { get; set; }
 
         #endregion
         #region Applikationsschicht
-        public Artikel() { }
+        public Article() { }
         [NotMapped]
-        public String BerechnetesAttribut
+        public String CalculatedAttribut
         {
             get
             {
                 return "Im Getter kann Code eingefügt werden für berechnete Attribute";
             }
         }
-        public static IEnumerable<Data.Artikel> LesenAlle()
+        public static IEnumerable<Data.Article> ReadAll()
         {
             return (from record in Data.Global.context.Artikel select record);
         }
-        public static Data.Artikel LesenID(Int64 klasseAId)
+        public static Data.Article ReadById(Int64 articleId)
         {
-            return (from record in Data.Global.context.Artikel where record.Artikelnummer == klasseAId select record).FirstOrDefault();
+            return (from record in Data.Global.context.Artikel where record.ArticleNumber == articleId select record).FirstOrDefault();
         }
-        public static IEnumerable<Data.Artikel> LesenAttributGleich(String suchbegriff)
+        public static IEnumerable<Data.Article> ReadArticleEquals(String searchString)
         {
-            return (from record in Data.Global.context.Artikel where record.Name == suchbegriff select record);
+            return (from record in Data.Global.context.Artikel where record.Name == searchString select record);
         }
-        public static IEnumerable<Data.Artikel> LesenAttributWie(String suchbegriff)
+        public static IEnumerable<Data.Article> ReadArticleContains(String searchString)
         {
-            return (from record in Data.Global.context.Artikel where record.Name.Contains(suchbegriff) select record);
+            return (from record in Data.Global.context.Artikel where record.Name.Contains(searchString) select record);
         }
-        public Int64 Erstellen()
+        public Int64 Create()
         {
             if (this.Name == null || this.Name == "") this.Name = "leer";
-            if (this.LetzterWareneingang == null) this.LetzterWareneingang = DateTime.MinValue;
+            if (this.LastArrival == null) this.LastArrival = DateTime.MinValue;
             Data.Global.context.Artikel.Add(this);
             Data.Global.context.SaveChanges();
-            return this.Artikelnummer;
+            return this.ArticleNumber;
         }
-        public Int64 Aktualisieren()
+        public Int64 Update()
         {
             Data.Global.context.Entry(this).State = System.Data.Entity.EntityState.Modified;
             Data.Global.context.SaveChanges();
-            return this.Artikelnummer;
+            return this.ArticleNumber;
         }
-        public void Loeschen()
+        public void Delete()
         {
             Data.Global.context.Entry(this).State = System.Data.Entity.EntityState.Deleted;
             Data.Global.context.SaveChanges();
         }
         public override string ToString()
         {
-            return Artikelnummer.ToString(); // Für bessere Coded UI Test Erkennung
+            return ArticleNumber.ToString(); // Für bessere Coded UI Test Erkennung
         }
         #endregion
     }

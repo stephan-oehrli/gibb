@@ -6,70 +6,101 @@
              xmlns:local="clr-namespace:M120Projekt.UserControls"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" d:DesignWidth="800">
-    <Grid Background="White">
-        <Grid Height="64" VerticalAlignment="Top" Background="#FF0AA4AE" >
-            <TextBlock Text="Artikel bearbeiten" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" Foreground="White"/>
-        </Grid>
-        <Grid Margin="24 88 24 0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="64"/>
-            </Grid.RowDefinitions>
-            <Grid Background="#1908565B">
-                <StackPanel Margin="24, 16, 24, 16">
-                    <TextBox x:Name="TextBoxArticleNumber" materialDesign:HintAssist.Hint="Artikelnummer" Style="{StaticResource MaterialDesignFloatingHintTextBox}" BorderBrush="#AE360A" FontSize="16" VerticalContentAlignment="Center" Margin="0 0 0 12"/>
-                    <Grid Margin="0 0 0 12">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="160"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <ComboBox x:Name="ComboBoxManufacturer" Grid.Column="0" materialDesign:HintAssist.Hint="Hersteller" Style="{StaticResource MaterialDesignFloatingHintComboBox}" BorderBrush="#AE360A" FontSize="16" VerticalContentAlignment="Center">
-                            <ComboBoxItem>ACER</ComboBoxItem>
-                            <ComboBoxItem>ASUS</ComboBoxItem>
-                            <ComboBoxItem>HP</ComboBoxItem>
-                            <ComboBoxItem>LENOVO</ComboBoxItem>
-                        </ComboBox>
-                        <TextBox x:Name="TextBoxArticleName" Grid.Column="1" materialDesign:HintAssist.Hint="Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" BorderBrush="#AE360A" FontSize="16" VerticalContentAlignment="Center" Margin="24 0 0 0"/>
-                    </Grid>
-                    <TextBox x:Name="TextBoxArticleDescription" materialDesign:HintAssist.Hint="Bezeichnung" Style="{StaticResource MaterialDesignFloatingHintTextBox}" BorderBrush="#AE360A" FontSize="16" VerticalContentAlignment="Center" Margin="0 0 0 24"/>
-                    <Grid Margin="0 0 0 12">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="4*"/>
-                            <ColumnDefinition Width="2*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition />
-                            <RowDefinition />
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
-                        <Label Content="CHF" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-                        <TextBox x:Name="TextBoxPrice" Grid.Column="1" materialDesign:HintAssist.Hint="Preis" BorderBrush="#AE360A" FontSize="16" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="40 0 0 0"/>
-                        <Label Grid.Row="1" FontSize="16" Content="Artikel an Lager" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 40 0 0"/>
-                        <CheckBox x:Name="CheckBoxOnStock" Grid.Row="1" Grid.Column="1" Background="#FF00963C" VerticalContentAlignment="Center" HorizontalAlignment="Right" VerticalAlignment="Bottom" IsChecked="False"/>
-                        <Label Grid.Row="2" FontSize="16" Content="Letzter Wareneingang" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-                        <DatePicker x:Name="DatePickerLastArrival" Grid.Row="2" Grid.Column="1"  BorderBrush="#AE360A" FontSize="16" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="40 12 0 0" />
-                    </Grid>
-                </StackPanel>
-            </Grid>
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="auto" />
-                </Grid.ColumnDefinitions>
-                <Button x:Name="BtnCancel" Grid.Column="0" FontSize="14" Padding="8 0 10 0" BorderBrush="#FFFF2E00" Background="#FFFF2E00" Click="handleCancel">
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="WindowClose" VerticalAlignment="Center" Margin="0 0 4 0" />
-                        <TextBlock Text="ABBRECHEN" />
+    <Grid>
+        <materialDesign:DialogHost x:Name="DialogHostEditArticle" BorderBrush="{DynamicResource MaterialDesignDivider}">
+            <materialDesign:DialogHost.DialogContent>
+                <Grid Width="300" Height="150" HorizontalAlignment="Center" >
+                    <StackPanel Orientation="Horizontal" Margin="15">
+                        <materialDesign:PackIcon Kind="Trash" Foreground="{StaticResource PrimaryHueMidBrush}" Width="50" Height="50" />
+                        <TextBlock Foreground="Gray" Width="200" Margin="15 5" TextWrapping="Wrap">
+                            Möchten Sie die Bearbeitung des Artikels wirklich abbrechen? Die bisherigen Änderungen gehen dabei verloren.
+                        </TextBlock>
                     </StackPanel>
-                </Button>
-                <Button x:Name="BtnSave" Grid.Column="2" FontSize="14" Padding="8 0 10 0" Background="#FF00963C" BorderBrush="#FF00963C">
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="Check" VerticalAlignment="Center" Margin="0 0 4 0" />
-                        <TextBlock Text="ÄNDERUNGEN SPEICHERN" />
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="15">
+                        <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Style="{DynamicResource MaterialDesignFlatButton}" Margin="4" VerticalAlignment="Center">
+                            Nein
+                        </Button>
+                        <Button Click="HandleCancel" Style="{DynamicResource MaterialDesignFlatButton}" Margin="4" VerticalAlignment="Center">
+                            Ja
+                        </Button>
                     </StackPanel>
-                </Button>
+                </Grid>
+            </materialDesign:DialogHost.DialogContent>
+
+            <Grid Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="64"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Height="64" VerticalAlignment="Top" Background="#FF0AA4AE" >
+                    <TextBlock x:Name="TextBlockTitle" Text="Neuer Artikel erstellen" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" Foreground="White"/>
+                </Grid>
+                <Grid Grid.Row="0" Margin="24 88 24 0">
+                    <Grid Background="#1908565B">
+                        <StackPanel Margin="24, 16, 24, 16">
+                            <TextBox x:Name="TextBoxArticleNumber" materialDesign:HintAssist.Hint="Artikelnummer" Style="{StaticResource MaterialDesignFloatingHintTextBox}" BorderBrush="#AE360A" FontSize="16" VerticalContentAlignment="Center" Margin="0 0 0 12"/>
+                            <Grid Margin="0 0 0 12">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="160"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <ComboBox 
+                                    x:Name="ComboBoxManufacturer" 
+                                    Grid.Column="0" 
+                                    materialDesign:HintAssist.Hint="Hersteller" 
+                                    Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
+                                    BorderBrush="#AE360A"
+                                    Background="#FFE7EEEF"
+                                    FontSize="16"
+                                    VerticalContentAlignment="Center">
+                                    <ComboBoxItem>ACER</ComboBoxItem>
+                                    <ComboBoxItem>ASUS</ComboBoxItem>
+                                    <ComboBoxItem>HP</ComboBoxItem>
+                                    <ComboBoxItem>LENOVO</ComboBoxItem>
+                                </ComboBox>
+                                <TextBox x:Name="TextBoxArticleName" Grid.Column="1" materialDesign:HintAssist.Hint="Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" BorderBrush="#AE360A" FontSize="16" VerticalContentAlignment="Center" Margin="24 0 0 0"/>
+                            </Grid>
+                            <TextBox x:Name="TextBoxArticleDescription" materialDesign:HintAssist.Hint="Beschreibung" Style="{StaticResource MaterialDesignFloatingHintTextBox}" BorderBrush="#AE360A" FontSize="16" VerticalContentAlignment="Center" Margin="0 0 0 24"/>
+                            <Grid Margin="0 0 0 12">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="4*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Label Content="CHF" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+                                <TextBox x:Name="TextBoxPrice" Grid.Column="1" materialDesign:HintAssist.Hint="Preis" BorderBrush="#AE360A" FontSize="16" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="40 0 0 0"/>
+                                <Label Grid.Row="1" FontSize="16" Content="Artikel an Lager" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 40 0 0"/>
+                                <CheckBox x:Name="CheckBoxOnStock" Grid.Row="1" Grid.Column="1" Background="#FF00963C" VerticalContentAlignment="Center" HorizontalAlignment="Right" VerticalAlignment="Bottom" IsChecked="False"/>
+                                <Label Grid.Row="2" FontSize="16" Content="Letzter Wareneingang" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+                                <DatePicker x:Name="DatePickerLastArrival" Grid.Row="2" Grid.Column="1"  BorderBrush="#AE360A" FontSize="16" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="40 12 0 0" />
+                            </Grid>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="1" Margin="24 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="BtnCancel" Grid.Column="0" FontSize="14" Padding="8 0 10 0" BorderBrush="#FFFF2E00" Background="#FFFF2E00" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="WindowClose" VerticalAlignment="Center" Margin="0 0 4 0" />
+                            <TextBlock Text="ABBRECHEN" />
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="BtnSave" Grid.Column="2" FontSize="14" Padding="8 0 10 0" Background="#FF00963C" BorderBrush="#FF00963C" Click="HandleSave">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Check" VerticalAlignment="Center" Margin="0 0 4 0" />
+                            <TextBlock Text="ÄNDERUNGEN SPEICHERN" />
+                        </StackPanel>
+                    </Button>
+                </Grid>
             </Grid>
-        </Grid>
+        </materialDesign:DialogHost>
     </Grid>
 </UserControl>

@@ -15,23 +15,23 @@ namespace M120Projekt
         {
             Debug.Print("--- DemoACreate ---");
             // KlasseA
-            Data.Artikel klasseA1 = new Data.Artikel();
+            Data.Article klasseA1 = new Data.Article();
 
-            klasseA1.Name = "Artikel 1";
-            klasseA1.Bezeichnung = "3GHZ CPU";
-            klasseA1.Hersteller = "ACER";
-            klasseA1.Preis = 1299.90;
-            klasseA1.LetzterWareneingang = DateTime.Today;
-            klasseA1.AnLager = true;
+            klasseA1.Name = "Article 1";
+            klasseA1.Description = "3GHZ CPU";
+            klasseA1.Manufacturer = "ACER";
+            klasseA1.Price = 1299.90;
+            klasseA1.LastArrival = DateTime.Today;
+            klasseA1.IsOnStock = true;
 
-            Int64 klasseA1Id = klasseA1.Erstellen();
-            Debug.Print("Artikel erstellt mit Id:" + klasseA1Id);
+            Int64 klasseA1Id = klasseA1.Create();
+            Debug.Print("Article erstellt mit Id:" + klasseA1Id);
         }
         public static void DemoACreateKurz()
         {
-            Data.Artikel klasseA2 = new Data.Artikel { Name = "Artikel 3", Bezeichnung = "Beschreibung Artikel 3", Hersteller = "Hersteller 3", Preis = 1999.95, LetzterWareneingang = DateTime.Today, AnLager = true };
-            Int64 klasseA2Id = klasseA2.Erstellen();
-            Debug.Print("Artikel erstellt mit Id:" + klasseA2Id);
+            Data.Article klasseA2 = new Data.Article { Name = "Article 3", Description = "Beschreibung Article 3", Manufacturer = "Manufacturer 3", Price = 1999.95, LastArrival = DateTime.Today, IsOnStock = true };
+            Int64 klasseA2Id = klasseA2.Create();
+            Debug.Print("Article erstellt mit Id:" + klasseA2Id);
         }
 
         // Read
@@ -39,9 +39,9 @@ namespace M120Projekt
         {
             Debug.Print("--- DemoARead ---");
             // Demo liest alle
-            foreach (Data.Artikel klasseA in Data.Artikel.LesenAlle())
+            foreach (Data.Article klasseA in Data.Article.ReadAll())
             {
-                Debug.Print("Artikel Id:" + klasseA.Artikelnummer + " Name:" + klasseA.Name);
+                Debug.Print("Article Id:" + klasseA.ArticleNumber + " Name:" + klasseA.Name);
             }
         }
         // Update
@@ -49,16 +49,16 @@ namespace M120Projekt
         {
             Debug.Print("--- DemoAUpdate ---");
             // KlasseA ändert Attribute
-            Data.Artikel klasseA1 = Data.Artikel.LesenID(1);
-            klasseA1.Name = "Artikel 1 nach Update";
-            klasseA1.Aktualisieren();
+            Data.Article klasseA1 = Data.Article.ReadById(1);
+            klasseA1.Name = "Article 1 nach Update";
+            klasseA1.Update();
         }
         // Delete
         public static void DemoADelete()
         {
             Debug.Print("--- DemoADelete ---");
-            Data.Artikel.LesenID(1).Loeschen();
-            Debug.Print("Artikel mit Id 1 gelöscht");
+            Data.Article.ReadById(1).Delete();
+            Debug.Print("Article mit Id 1 gelöscht");
         }
         #endregion
     }
