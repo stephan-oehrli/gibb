@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:M120Projekt.UserControls"
+             xmlns:local="clr-namespace:M120Projekt"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" d:DesignWidth="800">
     <Grid>
@@ -35,48 +35,119 @@
                 <Grid Grid.Row="0" Height="64" VerticalAlignment="Top" Background="#FF0AA4AE" >
                     <TextBlock x:Name="TextBlockTitle" Text="Neuer Artikel erstellen" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" Foreground="White"/>
                 </Grid>
+
                 <Grid Grid.Row="0" Margin="24 88 24 0">
                     <Grid Background="#1908565B">
                         <StackPanel Margin="24, 16, 24, 16">
-                            <TextBox x:Name="TextBoxArticleNumber" materialDesign:HintAssist.Hint="Artikelnummer" Style="{StaticResource MaterialDesignFloatingHintTextBox}" BorderBrush="#AE360A" FontSize="16" VerticalContentAlignment="Center" Margin="0 0 0 12"/>
-                            <Grid Margin="0 0 0 12">
+                            <StackPanel Margin="0 0 0 8">
+                                <TextBox 
+                                x:Name="ArticleNumber" 
+                                materialDesign:HintAssist.Hint="Artikelnummer" 
+                                Style="{DynamicResource MaterialDesignFloatingHintTextBox}" 
+                                FontSize="16" 
+                                VerticalContentAlignment="Center" 
+                                Margin="0 0 0 0" 
+                                LostFocus="UserInput_OnLostFocus"
+                                TextChanged="UserInput_OnTextChanged"
+                                PreviewTextInput="Numeric_OnPreviewTextInput"/>
+                                <TextBlock x:Name="ValidationTextArticleNumber" Foreground="Red" FontSize="12" Visibility="Hidden" >
+                                    Bitte geben Sie eine gültige, 7 Stellige Artikelnummer ein.
+                                </TextBlock>
+                            </StackPanel>
+                            <Grid Margin="0 0 0 8">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="160"/>
+                                    <ColumnDefinition Width="180"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <ComboBox 
-                                    x:Name="ComboBoxManufacturer" 
-                                    Grid.Column="0" 
+                                <StackPanel>
+                                    <ComboBox 
+                                    x:Name="Manufacturer" 
                                     materialDesign:HintAssist.Hint="Hersteller" 
                                     Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
-                                    BorderBrush="#AE360A"
                                     Background="#FFE7EEEF"
-                                    FontSize="16"
-                                    VerticalContentAlignment="Center">
-                                    <ComboBoxItem>ACER</ComboBoxItem>
-                                    <ComboBoxItem>ASUS</ComboBoxItem>
-                                    <ComboBoxItem>HP</ComboBoxItem>
-                                    <ComboBoxItem>LENOVO</ComboBoxItem>
-                                </ComboBox>
-                                <TextBox x:Name="TextBoxArticleName" Grid.Column="1" materialDesign:HintAssist.Hint="Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" BorderBrush="#AE360A" FontSize="16" VerticalContentAlignment="Center" Margin="24 0 0 0"/>
+                                    FontSize="16" 
+                                    VerticalContentAlignment="Center"
+                                    DropDownClosed="Manufacturer_OnDropDownClosed"
+                                    >
+                                        <ComboBoxItem>ACER</ComboBoxItem>
+                                        <ComboBoxItem>ASUS</ComboBoxItem>
+                                        <ComboBoxItem>HP</ComboBoxItem>
+                                        <ComboBoxItem>LENOVO</ComboBoxItem>
+                                    </ComboBox>
+                                    <TextBlock x:Name="ValidationTextManufacturer" Foreground="Red" FontSize="12" Visibility="Hidden" >
+                                        Bitte wählen Sie einen Hersteller.
+                                    </TextBlock>
+                                </StackPanel>
+                                <StackPanel  Grid.Column="1" Margin="24 0 0 0">
+                                    <TextBox x:Name="ArticleName" 
+                                             materialDesign:HintAssist.Hint="Name" 
+                                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                             FontSize="16" 
+                                             VerticalContentAlignment="Center"
+                                             LostFocus="UserInput_OnLostFocus"
+                                             TextChanged="UserInput_OnTextChanged"/>
+                                    <TextBlock x:Name="ValidationTextArticleName" Foreground="Red" FontSize="12" Visibility="Hidden">
+                                        Bitte geben Sie den Namen des Artikels ein.
+                                    </TextBlock>
+                                </StackPanel>
                             </Grid>
-                            <TextBox x:Name="TextBoxArticleDescription" materialDesign:HintAssist.Hint="Beschreibung" Style="{StaticResource MaterialDesignFloatingHintTextBox}" BorderBrush="#AE360A" FontSize="16" VerticalContentAlignment="Center" Margin="0 0 0 24"/>
-                            <Grid Margin="0 0 0 12">
+                            <StackPanel Margin="0 0 0 8">
+                                <TextBox x:Name="ArticleDescription" 
+                                     materialDesign:HintAssist.Hint="Beschreibung" 
+                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                     FontSize="16" 
+                                     VerticalContentAlignment="Center"
+                                     LostFocus="UserInput_OnLostFocus"
+                                     TextChanged="UserInput_OnTextChanged"/>
+                                <TextBlock x:Name="ValidationTextArticleDescription" Foreground="Red" FontSize="12" Visibility="Hidden" >
+                                    Die Artikelbeschreibung darf Maximal 100 Zeichen lang sein.
+                                </TextBlock>
+                            </StackPanel>
+                            <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="4*"/>
-                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="5*"/>
+                                    <ColumnDefinition Width="3*"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
                                     <RowDefinition />
                                     <RowDefinition />
                                     <RowDefinition />
                                 </Grid.RowDefinitions>
-                                <Label Content="CHF" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-                                <TextBox x:Name="TextBoxPrice" Grid.Column="1" materialDesign:HintAssist.Hint="Preis" BorderBrush="#AE360A" FontSize="16" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="40 0 0 0"/>
+                                <Label Content="CHF" 
+                                       FontSize="16" 
+                                       FontWeight="Bold" 
+                                       HorizontalAlignment="Right" 
+                                       Margin="0 16 0 0"/>
+
+                                <StackPanel Grid.Column="1" Margin="40 16 0 0">
+                                    <TextBox x:Name="Price" 
+                                             materialDesign:HintAssist.Hint="Preis" 
+                                             FontSize="16" 
+                                             HorizontalContentAlignment="Right" 
+                                             VerticalContentAlignment="Center" 
+                                             LostFocus="UserInput_OnLostFocus"
+                                             TextChanged="UserInput_OnTextChanged"
+                                             PreviewTextInput="Numeric_OnPreviewTextInput"/>
+                                    <TextBlock x:Name="ValidationTextPrice" HorizontalAlignment="Right" Foreground="Red" FontSize="12" Visibility="Hidden" >
+                                    Bitte geben Sie einen gültigen Preis ein.
+                                    </TextBlock>
+                                </StackPanel>
                                 <Label Grid.Row="1" FontSize="16" Content="Artikel an Lager" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 40 0 0"/>
-                                <CheckBox x:Name="CheckBoxOnStock" Grid.Row="1" Grid.Column="1" Background="#FF00963C" VerticalContentAlignment="Center" HorizontalAlignment="Right" VerticalAlignment="Bottom" IsChecked="False"/>
+                                <CheckBox x:Name="OnStock" 
+                                          Grid.Row="1" Grid.Column="1" 
+                                          Background="#FF00963C" 
+                                          VerticalContentAlignment="Center" 
+                                          HorizontalAlignment="Right" 
+                                          VerticalAlignment="Bottom" 
+                                          IsChecked="False"/>
                                 <Label Grid.Row="2" FontSize="16" Content="Letzter Wareneingang" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-                                <DatePicker x:Name="DatePickerLastArrival" Grid.Row="2" Grid.Column="1"  BorderBrush="#AE360A" FontSize="16" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="40 12 0 0" />
+                                <DatePicker x:Name="LastArrival"
+                                            Grid.Row="2" Grid.Column="1"
+                                            FontSize="16" 
+                                            HorizontalContentAlignment="Right" 
+                                            VerticalContentAlignment="Center" 
+                                            Margin="40 12 0 0" 
+                                            LostFocus="UserInput_OnLostFocus"/>
                             </Grid>
                         </StackPanel>
                     </Grid>
