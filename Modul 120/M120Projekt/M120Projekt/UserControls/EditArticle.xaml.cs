@@ -16,11 +16,11 @@ namespace M120Projekt.UserControls
         public EditArticle()
         {
             InitializeComponent();
+            LastArrival.DisplayDateEnd = DateTime.Now;
         }
 
-        public EditArticle(Article article)
+        public EditArticle(Article article) : this()
         {
-            InitializeComponent();
             TextBlockTitle.Text = "Artikel bearbeiten";
             FillInForm(article);
         }
