@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:M120Projekt"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="550" Height="550" MinWidth="800" Width="800">
+        Title="MainWindow" MinHeight="620" Height="620" MinWidth="900" Width="900">
     <Window.Resources>
         <Storyboard x:Key="MenuOpen">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
