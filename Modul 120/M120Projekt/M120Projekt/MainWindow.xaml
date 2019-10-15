@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:M120Projekt"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="550" Height="550" MinWidth="800" Width="800">
+        Title="MainWindow" MinHeight="620" Height="620" MinWidth="900" Width="900">
     <Window.Resources>
         <Storyboard x:Key="MenuOpen">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
@@ -47,7 +47,7 @@
                     <ListViewItem Height="64" Foreground="White" Background="#FF078992" Cursor="Hand">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="ViewDashboard" Width="24" Height="24" Margin="13 0 0 0" VerticalAlignment="Center"/>
-                            <TextBlock Text="Artikel" VerticalAlignment="Center" Margin="20 10"/>
+                            <TextBlock Text="Article" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="64" Foreground="White" Background="#FF078992" Cursor="Hand">

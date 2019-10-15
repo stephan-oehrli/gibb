@@ -1,0 +1,46 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:materialDesign="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf">
+
+    <Style x:Key="ValidFloatingHintTextBox" BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}"
+           TargetType="{x:Type TextBox}">
+        <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="Green" />
+        <Setter Property="BorderBrush" Value="Green" />
+        <Setter Property="BorderThickness" Value="0 0 0 2px" />
+    </Style>
+
+    <Style x:Key="InvalidFloatingHintTextBox" BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}"
+           TargetType="{x:Type TextBox}">
+        <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="Red" />
+        <Setter Property="materialDesign:HintAssist.Foreground" Value="Red" />
+        <Setter Property="BorderBrush" Value="Red" />
+        <Setter Property="BorderThickness" Value="0 0 0 2px" />
+    </Style>
+
+    <Style x:Key="ValidTextBox" BasedOn="{StaticResource MaterialDesignTextBox}" TargetType="{x:Type TextBox}">
+        <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="Green" />
+        <Setter Property="BorderBrush" Value="Green" />
+        <Setter Property="BorderThickness" Value="0 0 0 2px" />
+    </Style>
+
+    <Style x:Key="InvalidTextBox" BasedOn="{StaticResource MaterialDesignTextBox}" TargetType="{x:Type TextBox}">
+        <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="Red" />
+        <Setter Property="BorderBrush" Value="Red" />
+        <Setter Property="BorderThickness" Value="0 0 0 2px" />
+    </Style>
+
+    <Style x:Key="ValidComboBox" BasedOn="{StaticResource MaterialDesignFloatingHintComboBox}"
+           TargetType="{x:Type ComboBox}">
+        <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="Green" />
+        <Setter Property="BorderBrush" Value="Green" />
+        <Setter Property="BorderThickness" Value="0 0 0 2px" />
+    </Style>
+
+    <Style x:Key="InvalidComboBox" BasedOn="{StaticResource MaterialDesignFloatingHintComboBox}"
+           TargetType="{x:Type ComboBox}">
+        <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="Red" />
+        <Setter Property="BorderBrush" Value="Red" />
+        <Setter Property="BorderThickness" Value="0 0 0 2px" />
+    </Style>
+
+</ResourceDictionary>

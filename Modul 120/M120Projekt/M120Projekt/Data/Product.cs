@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity;
 
 namespace M120Projekt.Data
 {
@@ -60,11 +57,11 @@ namespace M120Projekt.Data
         }
         public static IEnumerable<Data.Product> LesenAttributGleich(String suchbegriff)
         {
-            return (from record in Data.Global.context.Artikel where record.Name == suchbegriff select record);
+            return (from record in Data.Global.context.Artikel where record.Name == searchString select record);
         }
         public static IEnumerable<Data.Product> LesenAttributWie(String suchbegriff)
         {
-            return (from record in Data.Global.context.Artikel where record.Name.Contains(suchbegriff) select record);
+            return (from record in Data.Global.context.Artikel where record.Name.Contains(searchString) select record);
         }
         public Int64 Create()
         {
