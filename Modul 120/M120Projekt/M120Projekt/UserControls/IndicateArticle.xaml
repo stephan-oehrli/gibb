@@ -37,24 +37,35 @@
             <Grid Background="#1908565B">
                 <StackPanel Margin="24, 16, 24, 16">
                     <Label Content="Artikelnummer" Margin="-4 16 0 0" Foreground="#FF555555"/>
-                    <TextBlock Text="1234567" />
+                    <TextBlock x:Name="ArticleNumber" 
+                               Text="1234567" />
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="160"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0">
-                            <Label Content="Hersteller" Margin="-4 16 0 0" Foreground="#FF555555"/>
-                            <TextBlock Text="ACER" />
+                            
+                            <Label Content="Hersteller" 
+                                   Margin="-4 16 0 0" 
+                                   Foreground="#FF555555"/>
+                            <TextBlock x:Name="Manufacturer" 
+                                       Text="ACER" />
                         </StackPanel>
                         <StackPanel Grid.Column="1">
                             <Label Content="Name" Margin="20 16 0 0" Foreground="#FF555555"/>
-                            <TextBlock Grid.Column="1" Text="Aspire C993" Margin="24 0 0 0"/>
+                            <TextBlock x:Name="Name" 
+                                       Grid.Column="1" 
+                                       Text="Aspire C993" 
+                                       Margin="24 0 0 0"/>
                         </StackPanel>
                         
                     </Grid>
                     <Label Content="Bezeichnung" Margin="-4 16 0 0" Foreground="#FF555555"/>
-                    <TextBlock Grid.Column="0" Text="Intel Core i7 @ 3.2GHz, 16GB RAM, 500GB SSD" VerticalAlignment="Bottom" />
+                    <TextBlock x:Name="Description" 
+                               Grid.Column="0" 
+                               Text="Intel Core i7 @ 3.2GHz, 16GB RAM, 500GB SSD" 
+                               VerticalAlignment="Bottom" />
                     <Grid Margin="0 24 0 12">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="5*"/>
@@ -66,12 +77,31 @@
                             <RowDefinition />
                         </Grid.RowDefinitions>
                         <Label Content="CHF" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 20 0 0"/>
-                        <TextBlock Grid.Column="1" Text="999.00" FontWeight="Bold" Margin="40 20 0 0" HorizontalAlignment="Right" />
+                        <TextBlock x:Name="Price" 
+                                   Grid.Column="1" 
+                                   Text="999.00" 
+                                   FontWeight="Bold" 
+                                   Margin="40 20 0 0" 
+                                   HorizontalAlignment="Right" />
                         <Rectangle Grid.Column="1" Width="120" Height="4" Fill="#66B09090" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
                         <Label Grid.Row="1" FontSize="16" Content="Artikel an Lager" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 20 0 0"/>
-                        <CheckBox Grid.Row="1" Grid.Column="1" Background="#FF00963C" VerticalContentAlignment="Center" HorizontalAlignment="Right" Margin="0 20 0 0" IsChecked="True" IsHitTestVisible="False" IsTabStop="False"/>
+                        <CheckBox x:Name="IsOnStock" 
+                                  Grid.Row="1" 
+                                  Grid.Column="1" 
+                                  Background="#FF00963C" 
+                                  VerticalContentAlignment="Center" 
+                                  HorizontalAlignment="Right" 
+                                  Margin="0 20 0 0" 
+                                  IsChecked="True" 
+                                  IsHitTestVisible="False" 
+                                  IsTabStop="False"/>
                         <Label Grid.Row="2" FontSize="16" Content="Letzter Wareneingang" HorizontalAlignment="Right"  Margin="0 16 0 0"/>
-                        <TextBlock Grid.Row="2" Grid.Column="1" Text="01.01.2019" Margin="40 16 0 0" HorizontalAlignment="Right"/>
+                        <TextBlock x:Name="LastArrival" 
+                                   Grid.Row="2" 
+                                   Grid.Column="1" 
+                                   Text="01.01.2019" 
+                                   Margin="40 16 0 0" 
+                                   HorizontalAlignment="Right"/>
                     </Grid>
                 </StackPanel>
             </Grid>
