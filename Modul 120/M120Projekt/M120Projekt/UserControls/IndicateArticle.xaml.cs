@@ -6,25 +6,33 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using M120Projekt.Data;
 
 namespace M120Projekt.UserControls
 {
     public partial class IndicateArticle : UserControl
     {
-        Product displayedProduct;
+        public static Product displayedProduct;
 
         public IndicateArticle()
         {
             InitializeComponent();
+            MainWindow.NavigationIsEnabled(true);
             DisplayArticle();
         }
 
         private void DisplayArticle()
         {
-            Data.Global.context = new Context();
-            IEnumerable<Product> products = Product.GetAllProducts();
-            displayedProduct = products.First();
+            if (displayedProduct == null)
+            {
+                Data.Global.context = new Context();
+                IEnumerable<Product> products = Product.GetAllProducts();
+                displayedProduct = products.FirstOrDefault();
+                if (displayedProduct == null)
+                {
+                    displayedProduct = CreateDummyArticle();
+                }
+            }
+            
             ArticleNumber.Text = displayedProduct.ArticleNumber.ToString();
             Manufacturer.Text = displayedProduct.Manufacturer;
             Name.Text = displayedProduct.Name;
@@ -36,8 +44,8 @@ namespace M120Projekt.UserControls
 
         private void HandleUpdateArticle(object sender, RoutedEventArgs e)
         {
-            Article dummyArticle = CreateDummyArticle();
-            MainWindow.Stage.Content = new EditArticle(dummyArticle);
+            Product dummyArticle = CreateDummyArticle();
+            MainWindow.Stage.Content = new EditArticle(displayedProduct);
         }
 
         private void HandleCreateArticle(object sender, RoutedEventArgs e)
@@ -45,9 +53,9 @@ namespace M120Projekt.UserControls
             MainWindow.Stage.Content = new EditArticle();
         }
 
-        private Article CreateDummyArticle()
+        private Product CreateDummyArticle()
         {
-            Article article = new Article();
+            Product article = new Product();
             article.ArticleNumber = 1234567;
             article.Manufacturer = "ACER";
             article.Name = "Aspire C993";
@@ -56,6 +64,14 @@ namespace M120Projekt.UserControls
             article.IsOnStock = true;
             article.LastArrival = DateTime.Parse("01/01/2019");
             return article;
+        }
+
+        private void HandleDelete(object sender, RoutedEventArgs e)
+        {
+            Data.Global.context = new Context();
+            displayedProduct.Delete();
+            displayedProduct = null;
+            DisplayArticle();
         }
     }
 }

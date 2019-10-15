@@ -55,11 +55,11 @@ namespace M120Projekt.Data
         {
             return (from record in Data.Global.context.Artikel where record.ArticleNumber == klasseAId select record).FirstOrDefault();
         }
-        public static IEnumerable<Data.Product> LesenAttributGleich(String suchbegriff)
+        public static IEnumerable<Data.Product> LesenAttributGleich(String searchString)
         {
             return (from record in Data.Global.context.Artikel where record.Name == searchString select record);
         }
-        public static IEnumerable<Data.Product> LesenAttributWie(String suchbegriff)
+        public static IEnumerable<Data.Product> LesenAttributWie(String searchString)
         {
             return (from record in Data.Global.context.Artikel where record.Name.Contains(searchString) select record);
         }

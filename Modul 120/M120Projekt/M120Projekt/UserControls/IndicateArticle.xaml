@@ -32,7 +32,7 @@
                         </Button>
                         <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
                                 Style="{DynamicResource MaterialDesignFlatButton}" Margin="4"
-                                VerticalAlignment="Center">
+                                VerticalAlignment="Center" Click="HandleDelete">
                             Löschen
                         </Button>
                     </StackPanel>
@@ -90,10 +90,7 @@
                         </StackPanel>
                         <StackPanel Grid.Column="1">
                             <Label Content="Name" Margin="20 16 0 0" Foreground="#FF555555"/>
-                            <TextBlock x:Name="Name" 
-                                       Grid.Column="1" 
-                                       Text="Aspire C993" 
-                                       Margin="24 0 0 0"/>
+                            <TextBlock x:Name="Name" Text="Aspire C993" Margin="24 0 0 0"/>
                         </StackPanel>
 
                     </Grid>

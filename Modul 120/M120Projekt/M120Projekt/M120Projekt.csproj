@@ -76,6 +76,9 @@
     <Compile Include="UserControls\IndicateArticle.xaml.cs">
       <DependentUpon>IndicateArticle.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\NavigationPlaceholder.xaml.cs">
+      <DependentUpon>NavigationPlaceholder.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -101,6 +104,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\IndicateArticle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\NavigationPlaceholder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

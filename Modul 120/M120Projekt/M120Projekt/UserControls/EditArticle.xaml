@@ -172,7 +172,7 @@
                         <ColumnDefinition Width="auto" />
                     </Grid.ColumnDefinitions>
                     <Button x:Name="BtnCancel" Grid.Column="0" FontSize="14" Padding="8 0 10 0" BorderBrush="#FFFF2E00"
-                            Background="#FFFF2E00" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}">
+                            Background="#FFFF2E00" Click="BtnCancel_Click">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="WindowClose" VerticalAlignment="Center" Margin="0 0 4 0" />
                             <TextBlock Text="ABBRECHEN" />

@@ -31,7 +31,7 @@
     </Window.Triggers>
     <Grid>
         <ContentControl x:Name="MyContentControl" Margin="64 0 0 0">
-            <UserControls:IndicateArticle />
+            
         </ContentControl>
         <Grid x:Name="GridMenu" Width="64" HorizontalAlignment="Left" Background="#FF0AA4AE">
             <StackPanel>
@@ -44,25 +44,33 @@
                     </Button>
                 </Grid>
                 <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                    <ListViewItem Height="64" Foreground="White" Background="#FF078992" Cursor="Hand">
+                    <ListViewItem Height="64" Foreground="White" Background="#FF078992" Cursor="Hand" 
+                                  MouseUp="Products_MouseUp"
+                                  x:Name="Products">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="ViewDashboard" Width="24" Height="24" Margin="13 0 0 0" VerticalAlignment="Center"/>
-                            <TextBlock Text="Article" VerticalAlignment="Center" Margin="20 10"/>
+                            <TextBlock Text="Artikel" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="64" Foreground="White" Background="#FF078992" Cursor="Hand">
+                    <ListViewItem Height="64" Foreground="White" Background="#FF078992" Cursor="Hand" 
+                                  MouseUp="Customers_MouseUp"
+                                  x:Name="Customers">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="UserGroup" Width="24" Height="24" Margin="13 0 0 0" VerticalAlignment="Center"/>
                             <TextBlock Text="Kunden" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="64" Foreground="White" Background="#FF078992" Cursor="Hand">
+                    <ListViewItem Height="64" Foreground="White" Background="#FF078992" Cursor="Hand"
+                                  MouseUp="Bill_MouseUp"
+                                  x:Name="Bill">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="FileDocumentBoxPlus" Width="24" Height="24" Margin="13 0 0 0" VerticalAlignment="Center"/>
                             <TextBlock Text="Beleg erfassen" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="64" Foreground="White" Background="#FF078992" Cursor="Hand">
+                    <ListViewItem Height="64" Foreground="White" Background="#FF078992" Cursor="Hand"
+                                  MouseUp="Revenue_MouseUp"
+                                  x:Name="Revenue">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Money100" Width="24" Height="24" Margin="13 0 0 0" VerticalAlignment="Center"/>
                             <TextBlock Text="Umsatz" VerticalAlignment="Center" Margin="20 10"/>
