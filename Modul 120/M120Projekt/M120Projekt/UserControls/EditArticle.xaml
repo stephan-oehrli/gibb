@@ -171,15 +171,27 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="auto" />
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="BtnCancel" Grid.Column="0" FontSize="14" Padding="8 0 10 0" BorderBrush="#FFFF2E00"
-                            Background="#FFFF2E00" Click="BtnCancel_Click">
+                    <Button x:Name="BtnCancel" 
+                            Grid.Column="0" 
+                            FontSize="14" 
+                            Padding="8 0 10 0" 
+                            BorderBrush="#FFFF2E00"
+                            Background="#FFFF2E00" 
+                            Click="BtnCancel_Click"
+                            IsCancel="True">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="WindowClose" VerticalAlignment="Center" Margin="0 0 4 0" />
                             <TextBlock Text="ABBRECHEN" />
                         </StackPanel>
                     </Button>
-                    <Button x:Name="BtnSave" Grid.Column="2" FontSize="14" Padding="8 0 10 0" Background="#FF00963C"
-                            BorderBrush="#FF00963C" Click="HandleSave">
+                    <Button x:Name="BtnSave" 
+                            Grid.Column="2" 
+                            FontSize="14" 
+                            Padding="8 0 10 0" 
+                            Background="#FF00963C"
+                            BorderBrush="#FF00963C" 
+                            Click="HandleSave"
+                            IsDefault="True">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Check" VerticalAlignment="Center" Margin="0 0 4 0" />
                             <TextBlock Text="ÄNDERUNGEN SPEICHERN" />
