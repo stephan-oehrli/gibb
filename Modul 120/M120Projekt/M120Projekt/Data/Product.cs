@@ -27,6 +27,14 @@ namespace M120Projekt.Data
         [Required]
         public String Manufacturer { get; set; }
 
+        public String PriceAsString
+        {
+            get
+            {
+                return GetPriceString();
+            }
+        }
+
         #endregion
         #region Applikationsschicht
         public Product() { }

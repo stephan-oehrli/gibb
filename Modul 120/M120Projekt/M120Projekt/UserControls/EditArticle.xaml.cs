@@ -13,6 +13,7 @@ namespace M120Projekt.UserControls
 {
     public partial class EditArticle : UserControl
     {
+        private int PrevUserControl = MainWindow.INDICATE;
         private Validator validator = new Validator();
         private Product touchedProduct;
         private Boolean textHasChanged;
@@ -22,6 +23,11 @@ namespace M120Projekt.UserControls
             InitializeComponent();
             MainWindow.NavigationIsEnabled(false);
             LastArrival.DisplayDateEnd = DateTime.Now;
+        }
+
+        public EditArticle(int prevUserControl) : this()
+        {
+            PrevUserControl = prevUserControl;
         }
 
         public EditArticle(Product product) : this()
@@ -58,7 +64,7 @@ namespace M120Projekt.UserControls
                     touchedProduct.Create();
                 }
                 IndicateArticle.displayedProduct = touchedProduct;
-                MainWindow.Stage.Content = new IndicateArticle();
+                ChangeUserControl();
             }
         }
 
@@ -91,7 +97,7 @@ namespace M120Projekt.UserControls
         {
             DialogHostEditArticle.IsOpen = false;
             await Task.Delay(500);
-            MainWindow.Stage.Content = new IndicateArticle();
+            ChangeUserControl();
         }
 
         private bool IsFieldValid(Control control)
@@ -159,11 +165,24 @@ namespace M120Projekt.UserControls
         {
             if (FormIsEmpty() || !textHasChanged)
             {
-                MainWindow.Stage.Content = new IndicateArticle();
+                ChangeUserControl();
             }
             else
             {
                 DialogHostEditArticle.IsOpen = true;
+            }
+        }
+
+        private void ChangeUserControl()
+        {
+            switch (PrevUserControl)
+            {
+                case MainWindow.INDICATE:
+                    MainWindow.Stage.Content = new IndicateArticle();
+                    break;
+                case MainWindow.OVERVIEW:
+                    MainWindow.Stage.Content = new OverviewArticles();
+                    break;
             }
         }
 

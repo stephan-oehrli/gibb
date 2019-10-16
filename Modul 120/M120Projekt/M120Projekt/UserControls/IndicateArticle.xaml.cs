@@ -53,7 +53,7 @@ namespace M120Projekt.UserControls
             MainWindow.Stage.Content = new EditArticle();
         }
 
-        private Product CreateDummyArticle()
+        public static Product CreateDummyArticle()
         {
             Product article = new Product();
             article.ArticleNumber = 1234567;
@@ -72,6 +72,11 @@ namespace M120Projekt.UserControls
             displayedProduct.Delete();
             displayedProduct = null;
             DisplayArticle();
+        }
+
+        private void ButtonBack_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.Stage.Content = new OverviewArticles();
         }
     }
 }

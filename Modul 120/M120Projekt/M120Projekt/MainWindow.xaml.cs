@@ -17,6 +17,9 @@ namespace M120Projekt
     /// </summary>
     public partial class MainWindow : Window
     {
+        public const int OVERVIEW = 1;
+        public const int INDICATE = 2;
+
         public static ContentControl Stage;
         private static ListViewItem NAV1;
         private static ListViewItem NAV2;
@@ -32,7 +35,7 @@ namespace M120Projekt
             NAV2 = Customers;
             NAV3 = Bill;
             NAV4 = Revenue;
-            Stage.Content = new IndicateArticle();
+            Stage.Content = new OverviewArticles();
             // Wichtig!
             //Data.Global.context = new Data.Context();
             // Aufruf diverse APIDemo Methoden
@@ -62,7 +65,7 @@ namespace M120Projekt
         
         private void Products_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            Stage.Content = new IndicateArticle();
+            Stage.Content = new OverviewArticles();
         }
 
         private void Customers_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
