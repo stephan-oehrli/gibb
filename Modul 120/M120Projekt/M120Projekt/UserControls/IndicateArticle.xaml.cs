@@ -32,7 +32,7 @@ namespace M120Projekt.UserControls
                     displayedProduct = CreateDummyArticle();
                 }
             }
-            
+            WindowTitle.Text = displayedProduct.Name;
             ArticleNumber.Text = displayedProduct.ArticleNumber.ToString();
             Manufacturer.Text = displayedProduct.Manufacturer;
             Name.Text = displayedProduct.Name;

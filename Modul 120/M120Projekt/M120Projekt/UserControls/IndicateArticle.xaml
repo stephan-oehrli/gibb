@@ -40,7 +40,8 @@
             </materialDesign:DialogHost.DialogContent>
             <Grid Height="64" VerticalAlignment="Top" Background="#FF0AA4AE">
                 <TextBlock Text="ACER Aspire C993" HorizontalAlignment="Center" VerticalAlignment="Center"
-                           FontSize="22" Foreground="White" />
+                           FontSize="22" Foreground="White" 
+                           x:Name="WindowTitle"/>
                 <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
                     <Button x:Name="ButtonBack" Background="{x:Null}" BorderBrush="{x:Null}" Height="40" Width="40"
                             Padding="0" Foreground="White" materialDesign:ButtonAssist.CornerRadius="30"
