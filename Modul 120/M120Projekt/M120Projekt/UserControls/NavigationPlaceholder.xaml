@@ -6,11 +6,13 @@
              xmlns:local="clr-namespace:M120Projekt.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Margin="24">
-        <Label x:Name="Title"
-               Content="Title"
-               VerticalAlignment="Center"
-               HorizontalAlignment="Center"
-               FontSize="32" />
+    <Grid Margin="24" Background="White">
+        <StackPanel VerticalAlignment="Center" 
+                    HorizontalAlignment="Center">
+            <Label x:Name="Title"
+                   HorizontalAlignment="Center"
+                   Content="Title"
+                   FontSize="32" />
+        </StackPanel>
     </Grid>
 </UserControl>
