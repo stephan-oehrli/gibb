@@ -14,4 +14,16 @@ public class Validator {
 		String trimmedInput = input.toLowerCase().replace(" ", "");
 		return trimmedInput.matches(regexPattern);
 	}
+	
+	public static boolean cellExists(int y, int x) {
+		return ((y >= 0 && y < numOfRows) && (x >= 0 && x < numOfColumns));
+	}
+
+	public static boolean cellCanBeTurned(Cell cell) {
+		return cell.getState() != State.MARKED && cell.getState() != State.REVEALED;
+	}
+
+	public static boolean cellCanBeMarked(Cell cell) {
+		return cell.getState() != State.REVEALED;
+	}
 }

@@ -34,7 +34,7 @@ public class Cell {
 	}
 
 	public void mark() {
-		this.state = State.MARKED;
+		this.state = (this.state == State.HIDDEN) ? State.MARKED : State.HIDDEN;
 	}
 
 	public State getState() {

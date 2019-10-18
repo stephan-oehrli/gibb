@@ -43,14 +43,10 @@ public class UserInterface {
 		return userInput.toLowerCase().replace(" ", "").split("");
 	}
 
-	public boolean isGameOver() {
-		if (playground.isGameLost() || playground.isGameWon()) {
-			playground.displayPlayground();
-			System.out.println(playground.isGameLost()
-					? "\nGame Over!\nBombe ist explodiert!"
-					: "\nGewonnen!\nGratulation! Sie haben alle Bomben entschärft.");
-			return true;
-		}
-		return false;
+	public void displayGameOverMessage() {
+		playground.displayPlayground();
+		System.out.println(Referee.gameLost
+				? "\nGame Over!\nMine ist explodiert!"
+				: "\nGewonnen!\nGratulation! Sie haben alle Minen entschärft.");
 	}
 }

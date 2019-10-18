@@ -4,12 +4,13 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		Playground playground = new Playground(5, 6, 5);
+		Playground playground = new Playground(10, 10, 15);
 		UserInterface ui = new UserInterface(playground);
 
-		while (!ui.isGameOver()) {
+		while (!Referee.isGameOver()) {
 			ui.displayInstructions();
 			ui.manageUserInput();
 		}
+		ui.displayGameOverMessage();
 	}
 }
