@@ -20,13 +20,13 @@ namespace M120Projekt.Data
         public DateTime LastArrival { get; set; }
         [Required]
         public Boolean IsOnStock { get; set; }
-        [Required]
         public String Description { get; set; }
         [Required]
         public Double Price { get; set; }
         [Required]
         public String Manufacturer { get; set; }
 
+        [NotMapped]
         public String PriceAsString
         {
             get

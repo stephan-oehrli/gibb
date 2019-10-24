@@ -137,6 +137,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="Data\Klassendiagramm.cd" />
@@ -150,10 +151,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Image.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="UserControls\giphy.gif" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

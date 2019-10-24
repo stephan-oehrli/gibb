@@ -83,13 +83,12 @@ namespace M120Projekt.UserControls
         private bool FormIsValid()
         {
             IList<Control> form = new List<Control>
-                {ArticleNumber, Manufacturer, ArticleName, ArticleDescription, Price};
+                {ArticleNumber, Manufacturer, ArticleName, ArticleDescription, Price, LastArrival};
             bool formIsValid = true;
             foreach (var control in form)
             {
                 if (!IsFieldValid(control)) formIsValid = false;
             }
-
             return formIsValid;
         }
 
@@ -121,8 +120,10 @@ namespace M120Projekt.UserControls
                 case "Price":
                     fieldIsValid = validator.PriceIsValid(control, validationErrorText);
                     break;
+                case "LastArrival":
+                    fieldIsValid = validator.DateIsValid(control, validationErrorText);
+                    break;
             }
-
             if (!fieldIsValid) control.Tag = "touched";
             return fieldIsValid;
         }
@@ -197,6 +198,9 @@ namespace M120Projekt.UserControls
             return true;
         }
 
-
+        private void LastArrival_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            IsFieldValid(sender as Control);
+        }
     }
 }

@@ -152,15 +152,22 @@
                                           VerticalAlignment="Bottom"
                                           IsChecked="False" />
                                 <Label Grid.Row="2" FontSize="16" Content="Letzter Wareneingang"
-                                       HorizontalAlignment="Right" VerticalAlignment="Bottom" />
-                                <DatePicker x:Name="LastArrival"
-                                            Grid.Row="2" Grid.Column="1"
-                                            FontSize="16"
-                                            HorizontalContentAlignment="Right"
-                                            VerticalContentAlignment="Center"
-                                            Margin="40 12 0 0"
-                                            IsTabStop="False" Focusable="False"
-                                />
+                                       HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                                       Margin="0 0 0 16"/>
+                                <StackPanel Grid.Row="2" Grid.Column="1">
+                                    <DatePicker x:Name="LastArrival"
+                                                FontSize="16"
+                                                HorizontalContentAlignment="Right"
+                                                VerticalContentAlignment="Center"
+                                                Margin="40 12 0 0"
+                                                IsTabStop="False" 
+                                                Focusable="False" 
+                                                SelectedDateChanged="LastArrival_SelectedDateChanged"/>
+                                    <TextBlock x:Name="ValidationTextLastArrival" HorizontalAlignment="Right"
+                                               Foreground="Red" FontSize="12" Visibility="Hidden">
+                                        Bitte geben Sie ein Datum an.
+                                    </TextBlock>
+                                </StackPanel>
                             </Grid>
                         </StackPanel>
                     </Grid>

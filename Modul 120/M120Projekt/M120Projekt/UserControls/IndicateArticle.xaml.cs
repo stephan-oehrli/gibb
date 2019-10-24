@@ -68,20 +68,10 @@ namespace M120Projekt.UserControls
 
         private void HandleDelete(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = System.Windows.MessageBox.Show("Wollen Sie wirklich?", "Höhöhö", MessageBoxButton.YesNo);
-            switch (result)
-            {
-                case MessageBoxResult.Yes:
-                    Console.WriteLine("lol");
-                    break;
-                case MessageBoxResult.No:
-                    Console.WriteLine("nooo");
-                    break;
-            }
             Data.Global.context = new Context();
             displayedProduct.Delete();
             displayedProduct = null;
-            DisplayArticle();
+            MainWindow.Stage.Content = new OverviewArticles();
         }
 
         private void ButtonBack_Click(object sender, RoutedEventArgs e)

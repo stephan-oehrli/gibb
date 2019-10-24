@@ -59,6 +59,5 @@ namespace M120Projekt.Properties {
                 resourceCulture = value;
             }
         }
-       
     }
 }

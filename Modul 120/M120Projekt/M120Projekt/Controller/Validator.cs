@@ -12,6 +12,14 @@ namespace M120Projekt.Controller
         private String userInput;
         private bool inputIsValid;
 
+        public bool DateIsValid(Control control, TextBlock errorTextBlock)
+        {
+            initParam(control, errorTextBlock);
+            inputIsValid = (control as DatePicker).SelectedDate != null;
+            if (!inputIsValid || control.Tag != null) HandleErrorTextVisibility();
+            return inputIsValid;
+        }
+
         public bool ArticleNumberIsValid(Control control, TextBlock errorTextBlock)
         {
             initParam(control, errorTextBlock);
@@ -63,14 +71,14 @@ namespace M120Projekt.Controller
         {
             this.control = control;
             this.errorTextBlock = errorTextBlock;
-            userInput = control.GetType() == typeof(TextBox) ? ((TextBox) control).Text : ((ComboBox) control).Text;
+            if (control is TextBox textBox) userInput = textBox.Text;
+            if (control is ComboBox comboBox) userInput = comboBox.Text;
         }
 
         private void HandleErrorTextVisibility()
         {
             Style materialFloatTextBox = Application.Current.FindResource("MaterialDesignFloatingHintTextBox") as Style;
-            bool isFloatingHintTextBox =
-                control.Style.BasedOn == materialFloatTextBox || control.Style == materialFloatTextBox;
+            bool isFloatingHintTextBox = control.Style.BasedOn == materialFloatTextBox || control.Style == materialFloatTextBox;
             if (inputIsValid)
             {
                 errorTextBlock.Visibility = Visibility.Hidden;
