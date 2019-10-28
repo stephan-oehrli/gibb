@@ -93,7 +93,7 @@ public class Playground {
 	}
 
 	private void handleNeighbourCellsTurning(int x, int y) {
-		if (!Referee.gameLost && cells[y][x].getNumOfNeighbourBombs() == 0) {
+		if (!Referee.gameLost && !cells[y][x].hasNeighbourBombs()) {
 			turnNeighbourCells(x, y);
 		}
 	}
@@ -101,7 +101,7 @@ public class Playground {
 	private void turnNeighbourCells(int x, int y) {
 		for (int i = -1; i <= 1; i++) {
 			for (int j = -1; j <= 1; j++) {
-				if (Validator.cellExists(y + i, x + j) && cells[y + i][x + j].getState() == State.HIDDEN)
+				if (Validator.cellExists(y + i, x + j) && cells[y + i][x + j].isHidden())
 					executeCommand(new String[] { "t", String.valueOf(x + j), String.valueOf(y + i) });
 			}
 		}

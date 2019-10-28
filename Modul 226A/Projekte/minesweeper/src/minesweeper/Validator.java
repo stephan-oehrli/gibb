@@ -20,10 +20,10 @@ public class Validator {
 	}
 
 	public static boolean cellCanBeTurned(Cell cell) {
-		return cell.getState() != State.MARKED && cell.getState() != State.REVEALED;
+		return !cell.isMarked() && !cell.isRevealed();
 	}
 
 	public static boolean cellCanBeMarked(Cell cell) {
-		return cell.getState() != State.REVEALED;
+		return !cell.isRevealed();
 	}
 }

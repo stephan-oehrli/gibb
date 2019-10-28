@@ -26,7 +26,7 @@ public class Cell {
 	}
 
 	public boolean hasCorrectMark() {
-		return hasBomb && getState() == State.MARKED;
+		return hasBomb && isMarked();
 	}
 
 	public void turn() {
@@ -36,24 +36,38 @@ public class Cell {
 	public void mark() {
 		this.state = (this.state == State.HIDDEN) ? State.MARKED : State.HIDDEN;
 	}
-
-	public State getState() {
-		return this.state;
+	
+	public boolean isMarked() {
+		return this.state == State.MARKED;
+	}
+	
+	public boolean isHidden() {
+		return this.state == State.HIDDEN;
+	}
+	
+	public boolean isExploded() {
+		return this.state == State.EXPLODED;
+	}
+	
+	public boolean isRevealed() {
+		return this.state == State.REVEALED;
+	}
+	
+	public boolean hasBomb() {
+		return hasBomb;
+	}
+	
+	public boolean hasNeighbourBombs() {
+		return this.numOfNeighbourBombs > 0;
 	}
 
 	public void setNumOfNeighbourBombs(int num) {
 		this.numOfNeighbourBombs = num;
 	}
 
-	public int getNumOfNeighbourBombs() {
-		return numOfNeighbourBombs;
-	}
-
 	public void setHasBomb(boolean hasBomb) {
 		this.hasBomb = hasBomb;
 	}
 
-	public boolean hasBomb() {
-		return hasBomb;
-	}
+	
 }

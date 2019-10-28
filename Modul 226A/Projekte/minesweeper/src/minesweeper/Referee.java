@@ -21,6 +21,6 @@ public class Referee {
 	}
 
 	public static void checkForLost(Cell cell) {
-		gameLost = cell.getState() == State.EXPLODED;
+		gameLost = cell.isExploded();
 	}
 }
