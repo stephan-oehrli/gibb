@@ -62,22 +62,6 @@ public class Playground {
 		return counter;
 	}
 
-	public void displayPlayground() {
-		StringBuilder firstLine = new StringBuilder("  ");
-		for (int i = 0; i < numOfColumns; i++) {
-			firstLine.append(i).append(" ");
-		}
-		System.out.println(firstLine);
-		for (int y = 0; y < numOfRows; y++) {
-			StringBuilder line = new StringBuilder(y + " ");
-			for (int x = 0; x < numOfColumns; x++) {
-				Cell cell = cells[y][x];
-				line.append(cell.getDisplayedIcon()).append(" ");
-			}
-			System.out.println(line);
-		}
-	}
-
 	public void executeCommand(String[] command) {
 		int x = Integer.parseInt(command[1]);
 		int y = Integer.parseInt(command[2]);
@@ -105,5 +89,32 @@ public class Playground {
 					executeCommand(new String[] { "t", String.valueOf(x + j), String.valueOf(y + i) });
 			}
 		}
+	}
+	
+	public void reveal() {
+		for (int y = 0; y < numOfRows; y++) {
+			for (int x = 0; x < numOfColumns; x++) {
+				Cell cell = cells[y][x]; 
+				if (cell.isHidden()) cell.turn();
+			}
+		}
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder playgroundString = new StringBuilder("  ");	
+		for (int i = 0; i < numOfColumns; i++) {
+			playgroundString.append(i).append(" ");
+		}
+		playgroundString.append("\n");
+		for (int y = 0; y < numOfRows; y++) {
+			playgroundString.append(y + " ");
+			for (int x = 0; x < numOfColumns; x++) {
+				Cell cell = cells[y][x];
+				playgroundString.append(cell.getDisplayedIcon()).append(" ");
+			}
+			playgroundString.append("\n");
+		}
+		return playgroundString.toString();
 	}
 }

@@ -14,8 +14,7 @@ public class UserInterface {
 	}
 
 	private void displayInstructions(boolean includingPlayground) {
-		if (includingPlayground)
-			playground.displayPlayground();
+		if (includingPlayground) System.out.print(playground);
 		System.out.println("" +
 				"\nGeben Sie ein Kommando ein: \n" +
 				"T x y (z.B. T 2 3 deckt die Zelle bei Spalte 2 Reihe 3 auf) \n" +
@@ -44,7 +43,8 @@ public class UserInterface {
 	}
 
 	public void displayGameOverMessage() {
-		playground.displayPlayground();
+		playground.reveal();
+		System.out.print(playground);
 		System.out.println(Referee.gameLost
 				? "\nGame Over!\nMine ist explodiert!"
 				: "\nGewonnen!\nGratulation! Sie haben alle Minen entschärft.");

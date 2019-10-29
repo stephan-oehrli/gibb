@@ -53,12 +53,12 @@ public class Cell {
 		return this.state == State.REVEALED;
 	}
 	
-	public boolean hasBomb() {
-		return hasBomb;
-	}
-	
 	public boolean hasNeighbourBombs() {
 		return this.numOfNeighbourBombs > 0;
+	}
+
+	public boolean hasBomb() {
+		return hasBomb;
 	}
 
 	public void setNumOfNeighbourBombs(int num) {
