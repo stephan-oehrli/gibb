@@ -2,11 +2,27 @@ package minesweeper;
 
 import java.util.Random;
 
+/**
+ * Die KLasse Playground stellt das Spielfeld des Minesweeperspiels dar. Eine
+ * Instanz von Playground hat Zugriff auf alle Zellen seines Spielfelds.
+ * 
+ * @author Stephan Oehrli
+ *
+ */
 public class Playground {
 
 	private int numOfRows, numOfColumns, numOfBombs;
 	private Cell[][] cells;
 
+	/**
+	 * Konstruktor. Setzt die Werte des Validators, erstellt das Spielfeld,
+	 * platziert die Minen und initialisiert die Anzeigewerte der Spielfeldzellen.
+	 * 
+	 * @param numOfRows    Anzahl Reihen im Spielfeld. Bestimmt die Spielfeldhöhe.
+	 * @param numOfColumns Anzahl Spalten im Spielfeld. Bestimmt die
+	 *                     Spielfeldbreite.
+	 * @param numOfBombs   Anzahl Minen im Spielfeld.
+	 */
 	public Playground(int numOfRows, int numOfColumns, int numOfBombs) {
 		this.numOfRows = numOfRows;
 		this.numOfColumns = numOfColumns;
@@ -27,17 +43,23 @@ public class Playground {
 	}
 
 	private void plantBombs() {
-		int randomRow, randomColumn;
 		Cell randomCell;
-		Random random = new Random();
 		for (int i = 0; i < numOfBombs; i++) {
 			do {
-				randomRow = random.nextInt(numOfRows);
-				randomColumn = random.nextInt(numOfColumns);
-				randomCell = cells[randomRow][randomColumn];
+				randomCell = getRandomCell();
 			} while (randomCell.hasBomb());
 			randomCell.setHasBomb(true);
 		}
+	}
+	
+	private Cell getRandomCell() {
+		int randomRow, randomColumn;
+		Cell randomCell;
+		Random random = new Random();
+		randomRow = random.nextInt(numOfRows);
+		randomColumn = random.nextInt(numOfColumns);
+		randomCell = cells[randomRow][randomColumn];
+		return randomCell;
 	}
 
 	private void initCellValues() {
@@ -62,18 +84,36 @@ public class Playground {
 		return counter;
 	}
 
-	public void executeCommand(String[] command) {
+	/**
+	 * Führt einen Befehl auf dem Spielfeld aus.
+	 * 
+	 * @param command Befehl des Spielers als String-Array mit 3 Zeichen im Format
+	 *                {'[Buchstabe des Befehls]', [Spalte X], [Spalte Y]}.
+	 */
+	public void executeCommand(String[] command) { 
 		int x = Integer.parseInt(command[1]);
 		int y = Integer.parseInt(command[2]);
+		if (Referee.firstTurn) {
+			handleFirstTurn(x, y);
+		}
 		Cell cell = cells[y][x];
 		if (command[0].equals("t") && Validator.cellCanBeTurned(cell)) {
 			cell.turn();
-			Referee.checkForLost(cell);
+			Referee.calculateLost(cell);
 			handleNeighbourCellsTurning(x, y);
 		} else if (command[0].equals("m") && Validator.cellCanBeMarked(cell)) {
 			cell.mark();
 			Referee.checkForWin(cells, numOfBombs);
 		}
+	}
+	
+	private void handleFirstTurn(int x, int y) {
+		while (cells[y][x].hasBomb()) {
+			buildPlayground();
+			plantBombs();
+			initCellValues();
+		}
+		Referee.firstTurn = false;
 	}
 
 	private void handleNeighbourCellsTurning(int x, int y) {
@@ -90,19 +130,27 @@ public class Playground {
 			}
 		}
 	}
-	
+
+	/**
+	 * Deckt alle Zellen des Spielfelds auf.
+	 */
 	public void reveal() {
 		for (int y = 0; y < numOfRows; y++) {
 			for (int x = 0; x < numOfColumns; x++) {
-				Cell cell = cells[y][x]; 
-				if (cell.isHidden()) cell.turn();
+				Cell cell = cells[y][x];
+				if (cell.isHidden())
+					cell.turn();
 			}
 		}
 	}
-	
+
+	/**
+	 * Bildet den aktuellen Status des Spielfeldes ab und gibt ihn als String
+	 * zurück.
+	 */
 	@Override
 	public String toString() {
-		StringBuilder playgroundString = new StringBuilder("  ");	
+		StringBuilder playgroundString = new StringBuilder("  ");
 		for (int i = 0; i < numOfColumns; i++) {
 			playgroundString.append(i).append(" ");
 		}

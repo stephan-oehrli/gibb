@@ -4,6 +4,7 @@ public class Referee {
 
 	public static boolean gameLost = false;
 	public static boolean gameWon = false;
+	public static boolean firstTurn = true;
 
 	public static boolean isGameOver() {
 		return gameLost || gameWon;
@@ -20,7 +21,8 @@ public class Referee {
 		gameWon = markedCellsWithBombs == numOfBombs;
 	}
 
-	public static void checkForLost(Cell cell) {
+	public static boolean calculateLost(Cell cell) {
 		gameLost = cell.isExploded();
+		return gameLost;
 	}
 }

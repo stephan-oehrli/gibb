@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"minesweeper","l":"Cell"},{"p":"minesweeper","l":"Main"},{"p":"minesweeper","l":"Playground"},{"p":"minesweeper","l":"Referee"},{"p":"minesweeper","l":"State"},{"p":"minesweeper","l":"UserInterface"},{"p":"minesweeper","l":"Validator"}]
