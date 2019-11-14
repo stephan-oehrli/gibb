@@ -1,5 +1,7 @@
 package minesweeper;
 
+import minesweeper.playground.Cell;
+
 public class Validator {
 
 	private static int numOfRows, numOfColumns;

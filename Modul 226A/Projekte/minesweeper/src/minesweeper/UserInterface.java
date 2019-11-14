@@ -2,6 +2,8 @@ package minesweeper;
 
 import java.util.Scanner;
 
+import minesweeper.playground.Playground;
+
 public class UserInterface {
 	private Playground playground;
 

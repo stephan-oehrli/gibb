@@ -1,5 +1,7 @@
 package minesweeper;
 
+import minesweeper.playground.Cell;
+
 public class Referee {
 
 	public static boolean gameLost = false;

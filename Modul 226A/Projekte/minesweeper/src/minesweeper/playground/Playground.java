@@ -1,6 +1,9 @@
-package minesweeper;
+package minesweeper.playground;
 
 import java.util.Random;
+
+import minesweeper.Referee;
+import minesweeper.Validator;
 
 /**
  * Die KLasse Playground stellt das Spielfeld des Minesweeperspiels dar. Eine
@@ -9,7 +12,7 @@ import java.util.Random;
  * @author Stephan Oehrli
  *
  */
-public class Playground {
+public class Playground implements PlaygroundInterface {
 
 	private int numOfRows, numOfColumns, numOfBombs;
 	private Cell[][] cells;
@@ -83,29 +86,6 @@ public class Playground {
 		}
 		return counter;
 	}
-
-	/**
-	 * Führt einen Befehl auf dem Spielfeld aus.
-	 * 
-	 * @param command Befehl des Spielers als String-Array mit 3 Zeichen im Format
-	 *                {'[Buchstabe des Befehls]', [Spalte X], [Spalte Y]}.
-	 */
-	public void executeCommand(String[] command) { 
-		int x = Integer.parseInt(command[1]);
-		int y = Integer.parseInt(command[2]);
-		if (Referee.firstTurn) {
-			handleFirstTurn(x, y);
-		}
-		Cell cell = cells[y][x];
-		if (command[0].equals("t") && Validator.cellCanBeTurned(cell)) {
-			cell.turn();
-			Referee.calculateLost(cell);
-			handleNeighbourCellsTurning(x, y);
-		} else if (command[0].equals("m") && Validator.cellCanBeMarked(cell)) {
-			cell.mark();
-			Referee.checkForWin(cells, numOfBombs);
-		}
-	}
 	
 	private void handleFirstTurn(int x, int y) {
 		while (cells[y][x].hasBomb()) {
@@ -164,5 +144,29 @@ public class Playground {
 			playgroundString.append("\n");
 		}
 		return playgroundString.toString();
+	}
+
+	/**
+	 * Führt einen Befehl auf dem Spielfeld aus.
+	 * 
+	 * @param command Befehl des Spielers als String-Array mit 3 Zeichen im Format
+	 *                {'[Buchstabe des Befehls]', [Spalte X], [Spalte Y]}.
+	 */
+	@Override
+	public void executeCommand(String[] command) { 
+		int x = Integer.parseInt(command[1]);
+		int y = Integer.parseInt(command[2]);
+		if (Referee.firstTurn) {
+			handleFirstTurn(x, y);
+		}
+		Cell cell = cells[y][x];
+		if (command[0].equals("t") && Validator.cellCanBeTurned(cell)) {
+			cell.turn();
+			Referee.calculateLost(cell);
+			handleNeighbourCellsTurning(x, y);
+		} else if (command[0].equals("m") && Validator.cellCanBeMarked(cell)) {
+			cell.mark();
+			Referee.checkForWin(cells, numOfBombs);
+		}
 	}
 }

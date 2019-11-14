@@ -1,4 +1,6 @@
-package minesweeper;
+package minesweeper.playground;
+
+import minesweeper.State;
 
 /**
  * Die Klasse Cell stellt eine einzelne Spielzelle im Minesweeper Spielfeld dar.
