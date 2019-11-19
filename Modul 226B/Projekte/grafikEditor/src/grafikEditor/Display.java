@@ -10,6 +10,14 @@ import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import grafikEditor.Figuren.Dreieck;
+import grafikEditor.Figuren.Ellipse;
+import grafikEditor.Figuren.Figur;
+import grafikEditor.Figuren.Kreis;
+import grafikEditor.Figuren.Linie;
+import grafikEditor.Figuren.Rechteck;
+import grafikEditor.Figuren.Text;
+
 /**
  * Die Klasse Display stellt ein Fenster auf dem Bildschirm zur Verfügung, in
  * welchem Figur-Objekte dargestellt werden können. Siehe auch Java-Grundkurs
@@ -71,6 +79,18 @@ public class Display extends JFrame {
 			if (f instanceof Linie) {
 				Linie l = (Linie) f;
 				g.drawLine(l.getX(), l.getY(), l.getEndX(), l.getEndY());
+			}
+			if (f instanceof Text) {
+				Text t = (Text) f;
+				g.drawChars(t.getInhalt(), 0, t.getInhalt().length, t.getX(), t.getY());
+			}
+			if (f instanceof Ellipse) {
+				Ellipse e = (Ellipse) f;
+				g.drawArc(e.getX() - e.getBreite() / 2, e.getY() - e.getHoehe() / 2, e.getBreite(), e.getHoehe(), 0, 360);
+			}
+			if (f instanceof Dreieck) {
+				Dreieck d = (Dreieck) f;
+				g.drawPolygon(d.getXPunkte(), d.getYPunkte(), 3);
 			}
 		}
 	}

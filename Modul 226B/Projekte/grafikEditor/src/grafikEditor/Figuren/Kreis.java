@@ -1,4 +1,4 @@
-package grafikEditor;
+package grafikEditor.Figuren;
 
 public class Kreis extends Figur {
 	private int radius;

@@ -1,10 +1,10 @@
-package grafikEditor;
+package grafikEditor.Figuren;
 
-public class Rechteck extends Figur {
-	private int breite;
-	private int hoehe;
+public class Ellipse extends Figur{
+	int breite;
+	int hoehe;
 	
-	public Rechteck(int x, int y, int breite, int hoehe) {
+	public Ellipse(int x, int y, int breite, int hoehe) {
 		super(x, y);
 		this.breite = breite;
 		this.hoehe = hoehe;
@@ -17,5 +17,4 @@ public class Rechteck extends Figur {
 	public int getHoehe() {
 		return hoehe;
 	}
-	
 }

@@ -1,4 +1,4 @@
-package grafikEditor;
+package grafikEditor.Figuren;
 
 public class Linie extends Figur {
 	private int endX;
