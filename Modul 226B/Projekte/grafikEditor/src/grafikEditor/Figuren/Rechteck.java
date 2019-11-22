@@ -1,11 +1,21 @@
 package grafikEditor.Figuren;
 
-public class Rechteck extends Figur {
+import java.awt.Color;
+
+public class Rechteck extends GeschlosseneFigur {
 	private int breite;
 	private int hoehe;
 	
 	public Rechteck(int x, int y, int breite, int hoehe) {
-		super(x, y);
+		this(x, y, breite, hoehe, null, null);
+	}
+	
+	public Rechteck(int x, int y, int breite, int hoehe, Color fuellung) {
+		this(x, y, breite, hoehe, fuellung, null);
+	}
+	
+	public Rechteck(int x, int y, int breite, int hoehe, Color fuellung, Color linienFarbe) {
+		super(x, y, fuellung, linienFarbe);
 		this.breite = breite;
 		this.hoehe = hoehe;
 	}

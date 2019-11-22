@@ -1,11 +1,21 @@
 package grafikEditor.Figuren;
 
-public class Dreieck extends Figur {
-	int breite;
-	int hoehe;
+import java.awt.Color;
+
+public class Dreieck extends GeschlosseneFigur {
+	private int breite;
+	private int hoehe;
 
 	public Dreieck(int x, int y, int breite, int hoehe) {
-		super(x, y);
+		this(x, y, breite, hoehe, null, null);
+	}
+	
+	public Dreieck(int x, int y, int breite, int hoehe, Color fuellung) {
+		this(x, y, breite, hoehe, fuellung, null);
+	}
+	
+	public Dreieck(int x, int y, int breite, int hoehe, Color fuellung, Color linienFarbe) {
+		super(x, y, fuellung, linienFarbe);
 		this.breite = breite;
 		this.hoehe = hoehe;
 	}
