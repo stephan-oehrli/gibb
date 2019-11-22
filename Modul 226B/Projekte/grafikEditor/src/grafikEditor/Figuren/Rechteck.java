@@ -27,5 +27,11 @@ public class Rechteck extends GeschlosseneFigur {
 	public int getHoehe() {
 		return hoehe;
 	}
+
+	@Override
+	public void skalieren(float faktor) {
+		breite *= faktor;
+		hoehe *= faktor;
+	}
 	
 }

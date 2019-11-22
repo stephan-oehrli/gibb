@@ -30,4 +30,16 @@ public class Linie extends Figur {
 		endX += deltaX;
 		endY += deltaY;
 	}
+
+	@Override
+	public void skalieren(float faktor) {
+		double mittelPunktX = (x + endX) / 2;
+		double mittelPunktY = (y + endY) / 2;
+		double differenzX = (mittelPunktX - x);
+		double differenzY = (mittelPunktY - y);
+		x = (int) (mittelPunktX - differenzX * faktor);
+		y = (int) (mittelPunktY - differenzY * faktor);
+		endX = (int) (mittelPunktX + differenzX * faktor);
+		endY = (int) (mittelPunktY + differenzY * faktor);
+	}
 }

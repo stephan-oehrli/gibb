@@ -28,4 +28,12 @@ public class FigurGruppe extends Figur {
 			figur.move(deltaX, deltaY);
 		}
 	}
+
+	@Override
+	public void skalieren(float faktor) {
+		for (Figur figur : gruppe) {
+			figur.skalieren(faktor);
+		}
+		
+	}
 }

@@ -20,5 +20,10 @@ public class Kreis extends GeschlosseneFigur {
 
 	public int getRadius() {
 		return radius;
+	}
+
+	@Override
+	public void skalieren(float faktor) {
+		radius *= faktor;
 	}	
 }

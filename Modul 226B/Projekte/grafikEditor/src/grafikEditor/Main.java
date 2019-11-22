@@ -53,6 +53,13 @@ public class Main {
 		FigurGruppe figurGruppe2 = new FigurGruppe();
 		figurGruppe2.hinzufuegen(Arrays.asList(ellipse1, text1));
 		figurGruppe2.move(-113, 0);
+		
+		FigurGruppe figurGruppe3 = new FigurGruppe();
+		figurGruppe3.hinzufuegen(Arrays.asList(kreis1, rechteck1, linie1, linie2, figurGruppe2));
+		figurGruppe3.skalieren(2f);
+		
+		dreieck1.skalieren(1.5f);
+		
 	}
 
 }

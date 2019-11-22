@@ -2,7 +2,7 @@ package grafikEditor.Figuren;
 
 import java.awt.Color;
 
-public class GeschlosseneFigur extends Figur {
+public abstract class GeschlosseneFigur extends Figur {
 	protected Color fuellung;
 		
 	public GeschlosseneFigur(int x, int y, Color fuellung, Color linienFarbe) {

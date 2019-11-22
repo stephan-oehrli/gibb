@@ -27,4 +27,9 @@ public class Text extends Figur{
 	public void setSchriftart(Font schriftart) {
 		this.schriftart = schriftart;
 	}
+
+	@Override
+	public void skalieren(float faktor) {
+		schriftart = schriftart.deriveFont(schriftart.getSize() * faktor);
+	}
 }

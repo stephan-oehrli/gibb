@@ -2,7 +2,7 @@ package grafikEditor.Figuren;
 
 import java.awt.Color;
 
-public class Figur {
+public abstract class Figur {
 	protected int x;
 	protected int y;
 	protected int linienDicke = 1;
@@ -18,6 +18,8 @@ public class Figur {
 		x += deltaX;
 		y += deltaY;
 	}
+	
+	public abstract void skalieren(float faktor);
 
 	public int getX() {
 		return x;

@@ -27,4 +27,10 @@ public class Dreieck extends GeschlosseneFigur {
 	public int[] getYPunkte() {
 		return new int[] {y + hoehe / 2, y - hoehe / 2, y + hoehe / 2};
 	}
+
+	@Override
+	public void skalieren(float faktor) {
+		breite *= faktor;
+		hoehe *= faktor;
+	}
 }
