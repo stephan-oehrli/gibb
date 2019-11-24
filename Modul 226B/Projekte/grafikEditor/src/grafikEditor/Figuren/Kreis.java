@@ -25,5 +25,5 @@ public class Kreis extends GeschlosseneFigur {
 	@Override
 	public void skalieren(float faktor) {
 		radius *= faktor;
-	}	
+	}
 }

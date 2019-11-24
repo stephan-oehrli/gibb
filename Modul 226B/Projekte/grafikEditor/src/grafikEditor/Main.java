@@ -24,6 +24,8 @@ public class Main {
 		
 		Kreis kreis1 = new Kreis(100, 100, 25, Color.red);
 		Kreis kreis2 = new Kreis(300, 375, 124);
+		kreis2.setLinienFarbe(Color.red);
+		kreis2.setLinienDicke(2);
 
 		Linie linie1 = new Linie(100, 150, 300, 350, Color.green);
 		linie1.setLinienDicke(3);
@@ -56,9 +58,10 @@ public class Main {
 		
 		FigurGruppe figurGruppe3 = new FigurGruppe();
 		figurGruppe3.hinzufuegen(Arrays.asList(kreis1, rechteck1, linie1, linie2, figurGruppe2));
-		figurGruppe3.skalieren(2f);
+		figurGruppe3.skalieren(1.5f);
 		
-		dreieck1.skalieren(1.5f);
+		dreieck1.skalieren(0.8f);
+		dreieck1.drehen(45);
 		
 	}
 

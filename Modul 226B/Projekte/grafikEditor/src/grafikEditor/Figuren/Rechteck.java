@@ -33,5 +33,4 @@ public class Rechteck extends GeschlosseneFigur {
 		breite *= faktor;
 		hoehe *= faktor;
 	}
-	
 }

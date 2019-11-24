@@ -5,6 +5,7 @@ import java.awt.Color;
 public abstract class Figur {
 	protected int x;
 	protected int y;
+	protected int drehungInGrad;
 	protected int linienDicke = 1;
 	protected Color linienFarbe;
 	
@@ -17,6 +18,10 @@ public abstract class Figur {
 	public void move(int deltaX, int deltaY) {
 		x += deltaX;
 		y += deltaY;
+	}
+	
+	public void drehen(int grad) {
+		this.drehungInGrad = grad;
 	}
 	
 	public abstract void skalieren(float faktor);
@@ -44,4 +49,8 @@ public abstract class Figur {
 	public void setLinienDicke(int linienDicke) {
 		this.linienDicke = linienDicke;
 	}
+
+	public double getDrehungInRad() {
+		return Math.toRadians(drehungInGrad);
+	}	
 }

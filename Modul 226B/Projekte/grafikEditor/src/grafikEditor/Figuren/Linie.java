@@ -23,6 +23,14 @@ public class Linie extends Figur {
 	public int getEndY() {
 		return endY;
 	}
+	
+	public double getMittelpunktX() {
+		return (x + endX) / 2;
+	}
+	
+	public double getMittelpunktY() {
+		return (y + endY) / 2;
+	}
 
 	@Override
 	public void move(int deltaX, int deltaY) {
@@ -33,8 +41,8 @@ public class Linie extends Figur {
 
 	@Override
 	public void skalieren(float faktor) {
-		double mittelPunktX = (x + endX) / 2;
-		double mittelPunktY = (y + endY) / 2;
+		double mittelPunktX = getMittelpunktX();
+		double mittelPunktY = getMittelpunktY();
 		double differenzX = (mittelPunktX - x);
 		double differenzY = (mittelPunktY - y);
 		x = (int) (mittelPunktX - differenzX * faktor);
