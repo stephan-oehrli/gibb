@@ -2,6 +2,7 @@ package grafikEditor;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import grafikEditor.Figuren.Dreieck;
@@ -17,6 +18,8 @@ public class Main {
 	private static final Display display = new Display();
 
 	public static void main(String[] args) {
+		Zeichnung zeichnung1 = new Zeichnung(new ArrayList<>());
+		
 		Rechteck rechteck1 = new Rechteck(100, 100, 100, 50);
 		rechteck1.setLinienDicke(3);
 		Rechteck rechteck2 = new Rechteck(300, 300, 100, 50, Color.blue, Color.red);
@@ -37,17 +40,19 @@ public class Main {
 		Ellipse ellipse1 = new Ellipse(415, 395, 50, 25, new Color(0x8800FF));
 		Text text1 = new Text(400, 400, "Hallo", Color.white);
 		text1.setSchriftart(new Font("Arial", 1, 12));
+
+		display.setZeichnung(zeichnung1);
 		
-		display.hinzufuegen(rechteck1);
-		display.hinzufuegen(rechteck2);
-		display.hinzufuegen(kreis1);
-		display.hinzufuegen(kreis2);
-		display.hinzufuegen(linie1);
-		display.hinzufuegen(linie2);
-		display.hinzufuegen(dreieck1);
-		display.hinzufuegen(ellipse1);
-		display.hinzufuegen(text1);
-	
+		zeichnung1.hinzufuegen(rechteck1);
+		zeichnung1.hinzufuegen(rechteck2);
+		zeichnung1.hinzufuegen(kreis1);
+		zeichnung1.hinzufuegen(kreis2);
+		zeichnung1.hinzufuegen(linie1);
+		zeichnung1.hinzufuegen(linie2);
+		zeichnung1.hinzufuegen(dreieck1);
+		zeichnung1.hinzufuegen(ellipse1);
+		zeichnung1.hinzufuegen(text1);
+		
 		FigurGruppe figurGruppe1 = new FigurGruppe();
 		figurGruppe1.hinzufuegen(Arrays.asList(kreis1, linie1, linie2, rechteck1, rechteck2));
 		figurGruppe1.move(200, 0);
@@ -62,7 +67,6 @@ public class Main {
 		
 		dreieck1.skalieren(0.8f);
 		dreieck1.drehen(45);
-		
 	}
 
 }

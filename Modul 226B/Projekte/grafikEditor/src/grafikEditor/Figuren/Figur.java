@@ -25,6 +25,8 @@ public abstract class Figur {
 	}
 	
 	public abstract void skalieren(float faktor);
+	
+	public abstract void zeichneFigur();
 
 	public int getX() {
 		return x;
@@ -52,5 +54,5 @@ public abstract class Figur {
 
 	public double getDrehungInRad() {
 		return Math.toRadians(drehungInGrad);
-	}	
+	}
 }
