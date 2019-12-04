@@ -1,6 +1,8 @@
 package grafikEditor.Figuren;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Graphics2D;
 
 public class Linie extends Figur {
 	private int endX;
@@ -23,11 +25,11 @@ public class Linie extends Figur {
 	public int getEndY() {
 		return endY;
 	}
-	
+
 	public double getMittelpunktX() {
 		return (x + endX) / 2;
 	}
-	
+
 	public double getMittelpunktY() {
 		return (y + endY) / 2;
 	}
@@ -49,5 +51,15 @@ public class Linie extends Figur {
 		y = (int) (mittelPunktY - differenzY * faktor);
 		endX = (int) (mittelPunktX + differenzX * faktor);
 		endY = (int) (mittelPunktY + differenzY * faktor);
+	}
+
+	@Override
+	public void zeichneFigur(Graphics2D g2) {
+		if (getDrehungInRad() != 0) {
+			g2.rotate(getDrehungInRad(), getMittelpunktX(), getMittelpunktY());
+		}
+		g2.setColor(linienFarbe != null ? linienFarbe : Color.black);
+		g2.setStroke(new BasicStroke(linienDicke));
+		g2.drawLine(x, y, endX, endY);
 	}
 }

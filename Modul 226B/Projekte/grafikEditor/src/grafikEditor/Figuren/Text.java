@@ -2,15 +2,16 @@ package grafikEditor.Figuren;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics2D;
 
-public class Text extends Figur{
+public class Text extends Figur {
 	String inhalt;
 	Font schriftart = new Font("Arial", 0, 12);
-	
+
 	public Text(int x, int y, String inhalt) {
 		this(x, y, inhalt, null);
 	}
-	
+
 	public Text(int x, int y, String inhalt, Color linienFarbe) {
 		super(x, y, linienFarbe);
 		this.inhalt = inhalt;
@@ -31,5 +32,15 @@ public class Text extends Figur{
 	@Override
 	public void skalieren(float faktor) {
 		schriftart = schriftart.deriveFont(schriftart.getSize() * faktor);
+	}
+
+	@Override
+	public void zeichneFigur(Graphics2D g2) {
+		if (getDrehungInRad() != 0) {
+			g2.rotate(getDrehungInRad(), x, y);
+		}
+		g2.setColor(linienFarbe != null ? linienFarbe : Color.black);
+		g2.setFont(schriftart);
+		g2.drawChars(getInhalt(), 0, getInhalt().length, x, y);
 	}
 }

@@ -1,6 +1,7 @@
 package grafikEditor.Figuren;
 
 import java.awt.Color;
+import java.awt.Graphics2D;
 
 public abstract class Figur {
 	protected int x;
@@ -26,7 +27,7 @@ public abstract class Figur {
 	
 	public abstract void skalieren(float faktor);
 	
-	public abstract void zeichneFigur();
+	public abstract void zeichneFigur(Graphics2D g2);
 
 	public int getX() {
 		return x;
