@@ -3,52 +3,33 @@ package grafikEditor;
 import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 final class EditorFrame extends JFrame {
-  private EditorControl editorControl = new EditorControl();
-  
-  public EditorFrame(int breite, int hoehe) {
-    erzeugeUndSetzeEditorPanel();
-    fensterEinmitten(breite, hoehe);
-    addMouseListener(new EditorMouseAdapter(editorControl));
-    setDefaultCloseOperation(EXIT_ON_CLOSE);
-    setVisible(true);
-  }
+	private EditorControl editorControl = new EditorControl();
 
-  private void erzeugeUndSetzeEditorPanel() {
-    JPanel panel = new EditorPanel(editorControl);
-    setContentPane(panel);
-  }
-
-  private void fensterEinmitten(int breite, int hoehe) {
-    Dimension bildschirmGroesse = Toolkit.getDefaultToolkit().getScreenSize();
-    Rectangle fensterAusschnitt = new Rectangle();
-    fensterAusschnitt.width = breite;
-    fensterAusschnitt.height = hoehe;
-    fensterAusschnitt.x = (bildschirmGroesse.width - fensterAusschnitt.width) / 2;
-    fensterAusschnitt.y = (bildschirmGroesse.height - fensterAusschnitt.height) / 2;
-    setBounds(fensterAusschnitt);
-  }
-  
-  private class blabal extends MouseAdapter {
-
-	@Override
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		super.mousePressed(e);
+	public EditorFrame(int breite, int hoehe) {
+		erzeugeUndSetzeEditorPanel();
+		fensterEinmitten(breite, hoehe);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setVisible(true);
 	}
 
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		super.mouseReleased(e);
+	private void erzeugeUndSetzeEditorPanel() {
+		JPanel panel = new EditorPanel(editorControl);
+		setContentPane(panel);
 	}
-	  
-  }
+
+	private void fensterEinmitten(int breite, int hoehe) {
+		Dimension bildschirmGroesse = Toolkit.getDefaultToolkit().getScreenSize();
+		Rectangle fensterAusschnitt = new Rectangle();
+		fensterAusschnitt.width = breite;
+		fensterAusschnitt.height = hoehe;
+		fensterAusschnitt.x = (bildschirmGroesse.width - fensterAusschnitt.width) / 2;
+		fensterAusschnitt.y = (bildschirmGroesse.height - fensterAusschnitt.height) / 2;
+		setBounds(fensterAusschnitt);
+	}
 }

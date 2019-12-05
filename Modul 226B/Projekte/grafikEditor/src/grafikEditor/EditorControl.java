@@ -3,6 +3,8 @@ package grafikEditor;
 import java.awt.Graphics;
 import java.awt.Point;
 
+import grafikEditor.Figuren.Rechteck;
+
 final class EditorControl {
   private Zeichnung zeichnung = new Zeichnung();
   private char figurTyp;
@@ -21,6 +23,9 @@ final class EditorControl {
   }
 
   public void erzeugeFigurMitZweitemPunkt(Point zweiterPunkt) {
-    //TODO: Ergänzen
+    if (ersterPunkt != zweiterPunkt) {
+    	Rechteck rechteck = new Rechteck(ersterPunkt.x, ersterPunkt.y, zweiterPunkt.x - ersterPunkt.x, zweiterPunkt.y - ersterPunkt.y);
+    	zeichnung.hinzufuegen(rechteck);
+    }
   }
 }
