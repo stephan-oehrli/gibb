@@ -3,6 +3,8 @@ package grafikEditor.userInterface;
 import java.awt.Graphics;
 import java.awt.Point;
 
+import grafikEditor.figuren.Dreieck;
+import grafikEditor.figuren.Ellipse;
 import grafikEditor.figuren.Figur;
 import grafikEditor.figuren.Kreis;
 import grafikEditor.figuren.Linie;
@@ -29,11 +31,11 @@ final class EditorControl {
 	public void erzeugeFigurMitZweitemPunkt(Point zweiterPunkt) {
 		if (ersterPunkt != zweiterPunkt) {
 			Figur figur = null;
+			int breite = zweiterPunkt.x - ersterPunkt.x;
+			int hoehe = zweiterPunkt.y - ersterPunkt.y;
 			
 			switch (figurTyp) {
 			case 'r':
-				int breite = zweiterPunkt.x - ersterPunkt.x;
-				int hoehe = zweiterPunkt.y - ersterPunkt.y;
 				int x = (breite < 0) ? ersterPunkt.x + breite : ersterPunkt.x;
 				int y = (hoehe < 0) ? ersterPunkt.y + hoehe : ersterPunkt.y;
 				figur = new Rechteck(x, y, Math.abs(breite), Math.abs(hoehe));
@@ -42,10 +44,16 @@ final class EditorControl {
 				figur = new Linie(ersterPunkt.x, ersterPunkt.y, zweiterPunkt.x, zweiterPunkt.y);
 				break;
 			case 'k':
-				int xVerschiebung = zweiterPunkt.x - ersterPunkt.x;
-				int yVerschiebung = zweiterPunkt.y - ersterPunkt.y;
-				double radius = Math.sqrt((xVerschiebung * xVerschiebung)+(yVerschiebung * yVerschiebung));
+				int xDifferenz = zweiterPunkt.x - ersterPunkt.x;
+				int yDifferenz = zweiterPunkt.y - ersterPunkt.y;
+				double radius = Math.sqrt((xDifferenz * xDifferenz)+(yDifferenz * yDifferenz));
 				figur = new Kreis(ersterPunkt.x, ersterPunkt.y, (int) Math.round(radius));
+				break;
+			case 'd':
+				figur = new Dreieck(ersterPunkt.x, ersterPunkt.y, breite, hoehe);
+				break;
+			case 'e':
+				figur = new Ellipse(ersterPunkt.x, ersterPunkt.y, Math.abs(breite), Math.abs(hoehe));
 				break;
 			}
 			
@@ -53,5 +61,9 @@ final class EditorControl {
 				zeichnung.hinzufuegen(figur);
 			}
 		}
+	}
+
+	public void saveZeichung() {
+		zeichnung.save();
 	}
 }

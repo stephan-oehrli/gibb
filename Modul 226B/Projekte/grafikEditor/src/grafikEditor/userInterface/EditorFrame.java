@@ -36,6 +36,15 @@ public final class EditorFrame extends JFrame {
 				case KeyEvent.VK_K:
 					editorControl.setFigurTyp('k');
 					break;
+				case KeyEvent.VK_D:
+					editorControl.setFigurTyp('d');
+					break;
+				case KeyEvent.VK_E:
+					editorControl.setFigurTyp('e');
+					break;
+				case KeyEvent.VK_S:
+					editorControl.saveZeichung();
+					break;
 				}
 			}
 

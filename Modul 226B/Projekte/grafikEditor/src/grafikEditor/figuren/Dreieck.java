@@ -23,11 +23,11 @@ public class Dreieck extends GeschlosseneFigur {
 	}
 
 	public int[] getXPunkte() {
-		return new int[] { x - breite / 2, x, x + breite / 2 };
+		return new int[] { x - breite, x, x + breite };
 	}
 
 	public int[] getYPunkte() {
-		return new int[] { y + hoehe / 2, y - hoehe / 2, y + hoehe / 2 };
+		return new int[] { y + hoehe, y - hoehe, y + hoehe};
 	}
 
 	@Override

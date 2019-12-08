@@ -40,4 +40,10 @@ public abstract class Figur {
 	public double getDrehungInRad() {
 		return Math.toRadians(drehungInGrad);
 	}
+
+	@Override
+	public String toString() {
+		return this.getClass().getSimpleName().toLowerCase().charAt(0) + "," + x + "," + y;
+	}
+	
 }

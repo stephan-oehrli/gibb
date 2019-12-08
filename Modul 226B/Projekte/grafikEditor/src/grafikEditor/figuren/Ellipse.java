@@ -35,10 +35,10 @@ public class Ellipse extends GeschlosseneFigur {
 		}
 		if (fuellung != null) {
 			g2.setColor(fuellung);
-			g2.fillArc(x - breite / 2, y - hoehe / 2, breite, hoehe, 0, 360);
+			g2.fillArc(x - breite, y - hoehe, breite, hoehe, 0, 360);
 		}
 		g2.setColor(linienFarbe != null ? linienFarbe : Color.black);
 		g2.setStroke(new BasicStroke(linienDicke));
-		g2.drawArc(x - breite / 2, y - hoehe / 2, breite, hoehe, 0, 360);
+		g2.drawArc(x - breite, y - hoehe, breite * 2, hoehe * 2, 0, 360);
 	}
 }

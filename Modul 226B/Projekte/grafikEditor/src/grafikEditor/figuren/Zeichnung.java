@@ -6,6 +6,8 @@ import java.awt.geom.AffineTransform;
 import java.util.ArrayList;
 import java.util.List;
 
+import grafikEditor.importExport.FigurSaver;
+
 public class Zeichnung {
 	private List<Figur> zeichnungen = new ArrayList<>();
 
@@ -42,5 +44,10 @@ public class Zeichnung {
 	 */
 	public void allesLoeschen() {
 		zeichnungen.clear();
+	}
+	
+	public void save() {
+		FigurSaver saver = new FigurSaver();
+		saver.save(zeichnungen);
 	}
 }
