@@ -3,6 +3,8 @@ package grafikEditor.userInterface;
 import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -15,7 +17,29 @@ public final class EditorFrame extends JFrame {
 		erzeugeUndSetzeEditorPanel();
 		fensterEinmitten(breite, hoehe);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		registerKeyListener();
 		setVisible(true);
+	}
+
+	private void registerKeyListener() {
+		addKeyListener(new KeyAdapter() {
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				switch (e.getKeyCode()) {
+				case KeyEvent.VK_R:
+					editorControl.setFigurTyp('r');
+					break;
+				case KeyEvent.VK_L:
+					editorControl.setFigurTyp('l');
+					break;
+				case KeyEvent.VK_K:
+					editorControl.setFigurTyp('k');
+					break;
+				}
+			}
+
+		});
 	}
 
 	private void erzeugeUndSetzeEditorPanel() {
