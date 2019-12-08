@@ -10,6 +10,7 @@ import grafikEditor.figuren.Kreis;
 import grafikEditor.figuren.Linie;
 import grafikEditor.figuren.Rechteck;
 import grafikEditor.figuren.Zeichnung;
+import grafikEditor.importExport.FigurLoader;
 
 final class EditorControl {
 	private Zeichnung zeichnung = new Zeichnung();
@@ -65,5 +66,10 @@ final class EditorControl {
 
 	public void saveZeichung() {
 		zeichnung.save();
+	}
+
+	public void loadZeichnung() {
+		FigurLoader loader = new FigurLoader();
+		zeichnung = loader.load();
 	}
 }

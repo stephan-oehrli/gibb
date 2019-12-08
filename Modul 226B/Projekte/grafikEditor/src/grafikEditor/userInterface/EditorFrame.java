@@ -45,6 +45,10 @@ public final class EditorFrame extends JFrame {
 				case KeyEvent.VK_S:
 					editorControl.saveZeichung();
 					break;
+				case KeyEvent.VK_0:
+					editorControl.loadZeichnung();
+					repaint();
+					break;
 				}
 			}
 

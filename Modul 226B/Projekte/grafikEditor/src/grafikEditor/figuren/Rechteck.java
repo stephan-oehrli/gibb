@@ -41,4 +41,11 @@ public class Rechteck extends GeschlosseneFigur {
 		g2.setStroke(new BasicStroke(linienDicke));
 		g2.drawRect(x, y, breite, hoehe);
 	}
+
+	@Override
+	public String toString() {
+		return super.toString() + "," + breite + "," + hoehe + "," + fuellung + "," + linienFarbe;
+	}
+	
+	
 }

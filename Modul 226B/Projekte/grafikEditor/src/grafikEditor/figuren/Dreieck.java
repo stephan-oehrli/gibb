@@ -49,4 +49,9 @@ public class Dreieck extends GeschlosseneFigur {
 		g2.setStroke(new BasicStroke(linienDicke));
 		g2.drawPolygon(getXPunkte(), getYPunkte(), 3);
 	}
+	
+	@Override
+	public String toString() {
+		return super.toString() + "," + breite + "," + hoehe + "," + fuellung + "," + linienFarbe;
+	}
 }

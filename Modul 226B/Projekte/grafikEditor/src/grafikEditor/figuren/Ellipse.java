@@ -41,4 +41,9 @@ public class Ellipse extends GeschlosseneFigur {
 		g2.setStroke(new BasicStroke(linienDicke));
 		g2.drawArc(x - breite, y - hoehe, breite * 2, hoehe * 2, 0, 360);
 	}
+	
+	@Override
+	public String toString() {
+		return super.toString() + "," + breite + "," + hoehe + "," + fuellung + "," + linienFarbe;
+	}
 }

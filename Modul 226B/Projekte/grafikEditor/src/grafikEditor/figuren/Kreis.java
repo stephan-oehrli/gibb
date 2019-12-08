@@ -35,4 +35,11 @@ public class Kreis extends GeschlosseneFigur {
 		g2.setStroke(new BasicStroke(linienDicke));
 		g2.drawArc(x - radius, y - radius, radius * 2, radius * 2, 0, 360);
 	}
+
+	@Override
+	public String toString() {
+		return super.toString() + "," + radius + "," + fuellung + "," + linienFarbe;
+	}
+	
+	
 }

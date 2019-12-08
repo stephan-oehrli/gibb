@@ -54,4 +54,11 @@ public class Linie extends Figur {
 		g2.setStroke(new BasicStroke(linienDicke));
 		g2.drawLine(x, y, endX, endY);
 	}
+
+	@Override
+	public String toString() {
+		return super.toString() + "," + endX + "," + endY + "," + linienFarbe;
+	}
+	
+	
 }
