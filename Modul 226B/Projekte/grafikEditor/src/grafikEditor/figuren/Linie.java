@@ -1,4 +1,4 @@
-package grafikEditor.Figuren;
+package grafikEditor.figuren;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -16,14 +16,6 @@ public class Linie extends Figur {
 		super(x, y, linienFarbe);
 		this.endX = endX;
 		this.endY = endY;
-	}
-
-	public int getEndX() {
-		return endX;
-	}
-
-	public int getEndY() {
-		return endY;
 	}
 
 	public double getMittelpunktX() {

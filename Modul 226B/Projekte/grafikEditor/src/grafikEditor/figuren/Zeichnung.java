@@ -1,12 +1,10 @@
-package grafikEditor;
+package grafikEditor.figuren;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
 import java.util.ArrayList;
 import java.util.List;
-
-import grafikEditor.Figuren.Figur;
 
 public class Zeichnung {
 	private List<Figur> zeichnungen = new ArrayList<>();

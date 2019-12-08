@@ -1,4 +1,4 @@
-package grafikEditor.Figuren;
+package grafikEditor.figuren;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -20,14 +20,6 @@ public class Ellipse extends GeschlosseneFigur {
 		super(x, y, fuellung, linienFarbe);
 		this.breite = breite;
 		this.hoehe = hoehe;
-	}
-
-	public int getBreite() {
-		return breite;
-	}
-
-	public int getHoehe() {
-		return hoehe;
 	}
 
 	@Override

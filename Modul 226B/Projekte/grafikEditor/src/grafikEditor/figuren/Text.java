@@ -1,4 +1,4 @@
-package grafikEditor.Figuren;
+package grafikEditor.figuren;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -19,10 +19,6 @@ public class Text extends Figur {
 
 	public char[] getInhalt() {
 		return inhalt.toCharArray();
-	}
-
-	public Font getSchriftart() {
-		return schriftart;
 	}
 
 	public void setSchriftart(Font schriftart) {

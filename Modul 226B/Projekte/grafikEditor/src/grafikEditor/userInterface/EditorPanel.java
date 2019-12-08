@@ -1,4 +1,4 @@
-package grafikEditor;
+package grafikEditor.userInterface;
 
 import java.awt.Graphics;
 import java.awt.Point;

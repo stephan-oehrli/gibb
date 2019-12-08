@@ -1,4 +1,4 @@
-package grafikEditor.Figuren;
+package grafikEditor.figuren;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -18,10 +18,6 @@ public class Kreis extends GeschlosseneFigur {
 	public Kreis(int x, int y, int radius, Color fuellung, Color linienFarbe) {
 		super(x, y, fuellung, linienFarbe);
 		this.radius = radius;
-	}
-
-	public int getRadius() {
-		return radius;
 	}
 
 	@Override
