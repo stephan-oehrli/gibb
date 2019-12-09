@@ -39,4 +39,17 @@ public class Text extends Figur {
 		g2.setFont(schriftart);
 		g2.drawChars(getInhalt(), 0, getInhalt().length, x, y);
 	}
+
+	@Override
+	public boolean isFormTypeOf(String type) {
+		return "t".equals(type);
+	}
+	
+	@Override
+	public Figur clone(String[] figurArr) {
+		x = Integer.parseInt(figurArr[1]);
+		y = Integer.parseInt(figurArr[2]);
+		inhalt = figurArr[3];
+		return new Text(x, y, inhalt);
+	}
 }

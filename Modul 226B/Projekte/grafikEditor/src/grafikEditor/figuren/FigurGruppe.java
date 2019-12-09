@@ -43,4 +43,14 @@ public class FigurGruppe extends Figur {
 			figur.zeichneFigur(g2);
 		}
 	}
+
+	@Override
+	public boolean isFormTypeOf(String type) {
+		return false;
+	}
+
+	@Override
+	public Figur clone(String[] figurArr) {
+		return null;
+	}
 }

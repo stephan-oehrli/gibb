@@ -54,4 +54,18 @@ public class Dreieck extends GeschlosseneFigur {
 	public String toString() {
 		return super.toString() + "," + breite + "," + hoehe + "," + fuellung + "," + linienFarbe;
 	}
+
+	@Override
+	public boolean isFormTypeOf(String type) {
+		return "d".equals(type);
+	}
+
+	@Override
+	public Figur clone(String[] figurArr) {
+		x = Integer.parseInt(figurArr[1]);
+		y = Integer.parseInt(figurArr[2]);
+		breite = Integer.parseInt(figurArr[3]);
+		hoehe = Integer.parseInt(figurArr[4]);
+		return new Dreieck(x, y, breite, hoehe);
+	}
 }

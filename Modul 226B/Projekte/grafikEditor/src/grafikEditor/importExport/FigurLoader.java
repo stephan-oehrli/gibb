@@ -3,17 +3,26 @@ package grafikEditor.importExport;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import grafikEditor.figuren.Dreieck;
 import grafikEditor.figuren.Ellipse;
+import grafikEditor.figuren.Figur;
 import grafikEditor.figuren.Kreis;
 import grafikEditor.figuren.Linie;
 import grafikEditor.figuren.Rechteck;
+import grafikEditor.figuren.Text;
 import grafikEditor.figuren.Zeichnung;
 
 public class FigurLoader {
 
+	List<Figur> protoTypes = new ArrayList<>();
 	Zeichnung zeichnung = new Zeichnung();
+	
+	public FigurLoader() {
+		createPrototypes();
+	}
 
 	public Zeichnung load() {
 		try (FileReader reader = new FileReader("figuren.txt")) {
@@ -27,44 +36,25 @@ public class FigurLoader {
 
 	private void erstelleFigur(String string) {
 		String[] figurArr = string.split(",");
-		switch (figurArr[0]) {
-		case "r":
-			zeichnung.hinzufuegen(new Rechteck(
-					Integer.parseInt(figurArr[1]),
-					Integer.parseInt(figurArr[2]),
-					Integer.parseInt(figurArr[3]),
-					Integer.parseInt(figurArr[4])));
-			break;
-		case "k":
-			zeichnung.hinzufuegen(new Kreis(
-					Integer.parseInt(figurArr[1]),
-					Integer.parseInt(figurArr[2]),
-					Integer.parseInt(figurArr[3])));
-			break;
-		case "l":
-			zeichnung.hinzufuegen(new Linie(
-					Integer.parseInt(figurArr[1]),
-					Integer.parseInt(figurArr[2]),
-					Integer.parseInt(figurArr[3]),
-					Integer.parseInt(figurArr[4])
-					));
-			break;
-		case "d":
-			zeichnung.hinzufuegen(new Dreieck(
-					Integer.parseInt(figurArr[1]),
-					Integer.parseInt(figurArr[2]),
-					Integer.parseInt(figurArr[3]),
-					Integer.parseInt(figurArr[4])
-					));
-			break;
-		case "e":
-			zeichnung.hinzufuegen(new Ellipse(
-					Integer.parseInt(figurArr[1]),
-					Integer.parseInt(figurArr[2]),
-					Integer.parseInt(figurArr[3]),
-					Integer.parseInt(figurArr[4])
-					));
-			break;
+		for (Figur figur : protoTypes) {
+			if (figur.isFormTypeOf(figurArr[0])) {
+				zeichnung.hinzufuegen(figur.clone(figurArr));
+			}
 		}
+	}
+	
+	private void createPrototypes() {
+		Rechteck rechteck = new Rechteck(0, 0, 0, 0);
+		protoTypes.add(rechteck);
+		Kreis kreis = new Kreis(0, 0, 0);
+		protoTypes.add(kreis);
+		Linie linie = new Linie(0, 0, 0, 0);
+		protoTypes.add(linie);
+		Dreieck dreieck = new Dreieck(0, 0, 0, 0);
+		protoTypes.add(dreieck);
+		Ellipse ellipse = new Ellipse(0, 0, 0, 0);
+		protoTypes.add(ellipse);
+		Text text = new Text(0, 0, null);
+		protoTypes.add(text);
 	}
 }

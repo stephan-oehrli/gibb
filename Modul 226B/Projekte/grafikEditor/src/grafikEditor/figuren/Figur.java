@@ -29,6 +29,10 @@ public abstract class Figur {
 
 	public abstract void zeichneFigur(Graphics2D g2);
 
+	public abstract boolean isFormTypeOf(String type);
+	
+	public abstract Figur clone(String[] figurArr);
+
 	public void setLinienFarbe(Color linienFarbe) {
 		this.linienFarbe = linienFarbe;
 	}

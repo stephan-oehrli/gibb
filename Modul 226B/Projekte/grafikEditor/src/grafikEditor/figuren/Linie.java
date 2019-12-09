@@ -59,6 +59,19 @@ public class Linie extends Figur {
 	public String toString() {
 		return super.toString() + "," + endX + "," + endY + "," + linienFarbe;
 	}
+
+	@Override
+	public boolean isFormTypeOf(String type) {
+		return "l".equals(type);
+	}
 	
+	@Override
+	public Figur clone(String[] figurArr) {
+		x = Integer.parseInt(figurArr[1]);
+		y = Integer.parseInt(figurArr[2]);
+		endX = Integer.parseInt(figurArr[3]);
+		endY = Integer.parseInt(figurArr[4]);
+		return new Linie(x, y, endX, endY);
+	}
 	
 }
