@@ -53,6 +53,10 @@ public class Kreis extends GeschlosseneFigur {
 		radius = Integer.parseInt(figurArr[3]);
 		return new Kreis(x, y, radius);
 	}
+
+	public void setRadius(int radius) {
+		this.radius = radius;
+	}
 	
 	
 }

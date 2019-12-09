@@ -68,4 +68,12 @@ public class Dreieck extends GeschlosseneFigur {
 		hoehe = Integer.parseInt(figurArr[4]);
 		return new Dreieck(x, y, breite, hoehe);
 	}
+
+	public void setBreite(int breite) {
+		this.breite = breite;
+	}
+
+	public void setHoehe(int hoehe) {
+		this.hoehe = hoehe;
+	}
 }

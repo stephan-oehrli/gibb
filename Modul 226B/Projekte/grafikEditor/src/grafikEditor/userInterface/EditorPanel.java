@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 
 import javax.swing.JPanel;
 
@@ -26,8 +27,17 @@ final class EditorPanel extends JPanel {
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				editorControl.erzeugeFigurMitZweitemPunkt(new Point(e.getX(), e.getY()));
+				editorControl.setzeFarbeZurueck();
 				repaint();
 			}
+		});
+		
+		addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseDragged(MouseEvent e) {
+				editorControl.erzeugeFigurMitZweitemPunkt(new Point(e.getX(), e.getY()));
+				repaint();
+			}			
 		});
 	}
 

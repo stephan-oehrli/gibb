@@ -73,5 +73,13 @@ public class Linie extends Figur {
 		endY = Integer.parseInt(figurArr[4]);
 		return new Linie(x, y, endX, endY);
 	}
+
+	public void setEndX(int endX) {
+		this.endX = endX;
+	}
+
+	public void setEndY(int endY) {
+		this.endY = endY;
+	}
 	
 }

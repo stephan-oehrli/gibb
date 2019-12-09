@@ -60,5 +60,13 @@ public class Rechteck extends GeschlosseneFigur {
 		hoehe = Integer.parseInt(figurArr[4]);
 		return new Rechteck(x, y, breite, hoehe);
 	}
+
+	public void setBreite(int breite) {
+		this.breite = breite;
+	}
+
+	public void setHoehe(int hoehe) {
+		this.hoehe = hoehe;
+	}
 	
 }
