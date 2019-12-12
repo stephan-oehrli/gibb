@@ -1,8 +1,10 @@
 package grafikEditor.userInterface;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Insets;
+import java.awt.Label;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.event.InputEvent;
@@ -22,6 +24,8 @@ import javax.swing.KeyStroke;
 @SuppressWarnings("serial")
 public final class EditorFrame extends JFrame {
 	private EditorControl editorControl = new EditorControl();
+	private Label lblSelectedFunction;
+	private Label lblMouseCoordinates;
 
 	public EditorFrame(int breite, int hoehe) {
 		erzeugeUndSetzeEditorPanel();
@@ -29,12 +33,14 @@ public final class EditorFrame extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		buildMenu();
 		buildToolbar();
+		buildFooter();
 		registerKeyListener();
 		setVisible(true);
 	}
 
 	private void erzeugeUndSetzeEditorPanel() {
 		JPanel panel = new EditorPanel(editorControl);
+		panel.setBackground(Color.white);
 		setContentPane(panel);
 		setLayout(new BorderLayout());
 	}
@@ -121,6 +127,19 @@ public final class EditorFrame extends JFrame {
 		btnTriangle.setFocusable(false);
 		btnTriangle.addActionListener(listener -> editorControl.setFigurTyp('d'));
 		bar.add(btnTriangle);
+	}
+	
+	public void updateLblSelectedFunction(String selectedFunction) {
+		lblSelectedFunction.setText("Funktion: " + selectedFunction);
+	}
+
+	private void buildFooter() {
+		JPanel footer = new JPanel(new BorderLayout());
+		lblSelectedFunction = new Label("Funktion: ");
+		footer.add(lblSelectedFunction, BorderLayout.WEST);
+		lblMouseCoordinates = new Label("Maus: x=, y=");
+		footer.add(lblMouseCoordinates, BorderLayout.EAST);
+		add(footer, BorderLayout.SOUTH);
 	}
 
 	private void registerKeyListener() {
