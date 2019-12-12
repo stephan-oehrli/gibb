@@ -64,7 +64,6 @@ final class EditorControl {
 				int y = (hoehe < 0) ? ersterPunkt.y + hoehe : ersterPunkt.y;
 				figur.setX(x);
 				figur.setY(y);
-				((Rechteck)figur).setBreite(y);
 				((Rechteck)figur).setBreite(Math.abs(breite));
 				((Rechteck)figur).setHoehe(Math.abs(hoehe));
 				break;
