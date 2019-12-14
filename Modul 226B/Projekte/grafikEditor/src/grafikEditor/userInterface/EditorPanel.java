@@ -1,5 +1,6 @@
 package grafikEditor.userInterface;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
@@ -17,6 +18,7 @@ final class EditorPanel extends JPanel {
 
 	EditorPanel(EditorControl control) {
 		editorControl = control;
+		setBackground(Color.white);
 		registerMouseListener();
 	}
 
@@ -37,6 +39,7 @@ final class EditorPanel extends JPanel {
 		addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
 			public void mouseDragged(MouseEvent e) {
+				mousePosSubscribers.forEach(subscriber -> subscriber.update(e.getPoint()));
 				editorControl.aktualisiereFigurMitZweitemPunkt(new Point(e.getX(), e.getY()));
 				repaint();
 			}

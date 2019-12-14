@@ -1,7 +1,6 @@
 package grafikEditor.userInterface;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Insets;
 import java.awt.Rectangle;
@@ -25,9 +24,9 @@ public final class EditorFrame extends JFrame {
 	private EditorPanel editorPanel;
 
 	public EditorFrame(int breite, int hoehe) {
-		erzeugeUndSetzeEditorPanel();
 		fensterEinmitten(breite, hoehe);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		erzeugeUndSetzeEditorPanel();
 		buildMenu();
 		buildToolbar();
 		buildStatusbar();
@@ -37,7 +36,6 @@ public final class EditorFrame extends JFrame {
 
 	private void erzeugeUndSetzeEditorPanel() {
 		editorPanel = new EditorPanel(editorControl);
-		editorPanel.setBackground(Color.white);
 		setContentPane(editorPanel);
 		setLayout(new BorderLayout());
 	}
