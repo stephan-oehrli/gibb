@@ -3,6 +3,8 @@ package grafikEditor.userInterface;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
+import java.util.ArrayList;
+import java.util.List;
 
 import grafikEditor.figuren.Dreieck;
 import grafikEditor.figuren.Ellipse;
@@ -18,6 +20,7 @@ final class EditorControl {
 	private char figurTyp;
 	private Point ersterPunkt;
 	private Figur figur;
+	private List<FigurTypSubscriber> figurTypSubscribers = new ArrayList<>();
 
 	public void allesNeuZeichnen(Graphics g) {
 		zeichnung.zeichneFiguren(g);
@@ -25,9 +28,10 @@ final class EditorControl {
 
 	public void setFigurTyp(char figurTyp) {
 		this.figurTyp = figurTyp;
+		figurTypSubscribers.forEach(subscriber -> subscriber.update(figurTyp));
 	}
 
-	public void setErsterPunkt(Point ersterPunkt) {
+	public void erzeugeFigurMitErstemPunkt(Point ersterPunkt) {
 		this.ersterPunkt = ersterPunkt;
 		switch (figurTyp) {
 		case 'r':
@@ -53,7 +57,7 @@ final class EditorControl {
 		}
 	}
 
-	public void erzeugeFigurMitZweitemPunkt(Point zweiterPunkt) {
+	public void aktualisiereFigurMitZweitemPunkt(Point zweiterPunkt) {
 		if (ersterPunkt != zweiterPunkt && figur != null) {
 			int breite = zweiterPunkt.x - ersterPunkt.x;
 			int hoehe = zweiterPunkt.y - ersterPunkt.y;
@@ -88,10 +92,6 @@ final class EditorControl {
 			}
 		}
 	}
-	
-	public void setzeFarbeZurueck() {
-		if (figur != null) figur.setLinienFarbe(Color.BLACK);
-	}
 
 	public void saveZeichung() {
 		zeichnung.save();
@@ -100,5 +100,19 @@ final class EditorControl {
 	public void loadZeichnung() {
 		FigurLoader loader = new FigurLoader();
 		zeichnung = loader.load();
+	}
+	
+	public void addFigurTypSubscriber(FigurTypSubscriber subscriber) {
+		figurTypSubscribers.add(subscriber);
+		setFigurTyp('a');
+	}
+	
+	public void removeFigurTypSubscriber(FigurTypSubscriber subscriber) {
+		figurTypSubscribers.remove(subscriber);
+	}
+
+	public void prepareForNextFigur() {
+		if (figur != null) figur.setLinienFarbe(Color.BLACK);
+		figur = null;
 	}
 }

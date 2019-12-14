@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Insets;
-import java.awt.Label;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.event.InputEvent;
@@ -17,15 +16,13 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JPanel;
 import javax.swing.JToolBar;
 import javax.swing.KeyStroke;
 
 @SuppressWarnings("serial")
 public final class EditorFrame extends JFrame {
 	private EditorControl editorControl = new EditorControl();
-	private Label lblSelectedFunction;
-	private Label lblMouseCoordinates;
+	private EditorPanel editorPanel;
 
 	public EditorFrame(int breite, int hoehe) {
 		erzeugeUndSetzeEditorPanel();
@@ -33,15 +30,15 @@ public final class EditorFrame extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		buildMenu();
 		buildToolbar();
-		buildFooter();
+		buildStatusbar();
 		registerKeyListener();
 		setVisible(true);
 	}
 
 	private void erzeugeUndSetzeEditorPanel() {
-		JPanel panel = new EditorPanel(editorControl);
-		panel.setBackground(Color.white);
-		setContentPane(panel);
+		editorPanel = new EditorPanel(editorControl);
+		editorPanel.setBackground(Color.white);
+		setContentPane(editorPanel);
 		setLayout(new BorderLayout());
 	}
 
@@ -95,7 +92,7 @@ public final class EditorFrame extends JFrame {
 		JButton btnPointer = new JButton(new ImageIcon("ressources/cursor.png"));
 		btnPointer.setToolTipText("Figur wählen");
 		btnPointer.setFocusable(false);
-		btnPointer.addActionListener(listener -> editorControl.setFigurTyp('s'));
+		btnPointer.addActionListener(listener -> editorControl.setFigurTyp('a'));
 		bar.add(btnPointer);
 		
 		JButton btnRectangle = new JButton(new ImageIcon("ressources/rectangle.png"));
@@ -128,18 +125,12 @@ public final class EditorFrame extends JFrame {
 		btnTriangle.addActionListener(listener -> editorControl.setFigurTyp('d'));
 		bar.add(btnTriangle);
 	}
-	
-	public void updateLblSelectedFunction(String selectedFunction) {
-		lblSelectedFunction.setText("Funktion: " + selectedFunction);
-	}
 
-	private void buildFooter() {
-		JPanel footer = new JPanel(new BorderLayout());
-		lblSelectedFunction = new Label("Funktion: ");
-		footer.add(lblSelectedFunction, BorderLayout.WEST);
-		lblMouseCoordinates = new Label("Maus: x=, y=");
-		footer.add(lblMouseCoordinates, BorderLayout.EAST);
-		add(footer, BorderLayout.SOUTH);
+	private void buildStatusbar() {
+		StatusBar statusBar = new StatusBar();
+		editorControl.addFigurTypSubscriber(statusBar);
+		editorPanel.addMousePosSubscriber(statusBar);
+		add(statusBar, BorderLayout.SOUTH);
 	}
 
 	private void registerKeyListener() {

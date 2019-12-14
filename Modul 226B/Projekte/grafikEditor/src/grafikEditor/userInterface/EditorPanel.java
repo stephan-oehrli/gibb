@@ -5,12 +5,15 @@ import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 final class EditorPanel extends JPanel {
 	private EditorControl editorControl;
+	private List<MousePosSubscriber> mousePosSubscribers = new ArrayList<>();
 
 	EditorPanel(EditorControl control) {
 		editorControl = control;
@@ -21,13 +24,12 @@ final class EditorPanel extends JPanel {
 		addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				editorControl.setErsterPunkt(new Point(e.getX(), e.getY()));
+				editorControl.erzeugeFigurMitErstemPunkt(new Point(e.getX(), e.getY()));
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				editorControl.erzeugeFigurMitZweitemPunkt(new Point(e.getX(), e.getY()));
-				editorControl.setzeFarbeZurueck();
+				editorControl.prepareForNextFigur();
 				repaint();
 			}
 		});
@@ -35,8 +37,13 @@ final class EditorPanel extends JPanel {
 		addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
 			public void mouseDragged(MouseEvent e) {
-				editorControl.erzeugeFigurMitZweitemPunkt(new Point(e.getX(), e.getY()));
+				editorControl.aktualisiereFigurMitZweitemPunkt(new Point(e.getX(), e.getY()));
 				repaint();
+			}
+
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				mousePosSubscribers.forEach(subscriber -> subscriber.update(e.getPoint()));
 			}			
 		});
 	}
@@ -47,5 +54,13 @@ final class EditorPanel extends JPanel {
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		editorControl.allesNeuZeichnen(g);
+	}
+	
+	public void addMousePosSubscriber(MousePosSubscriber subscriber) {
+		mousePosSubscribers.add(subscriber);
+	}
+	
+	public void removeMousePosSubscriber(MousePosSubscriber subscriber) {
+		mousePosSubscribers.remove(subscriber);
 	}
 }
