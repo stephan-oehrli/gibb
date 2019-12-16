@@ -51,7 +51,7 @@ public class Rechteck extends GeschlosseneFigur {
 	public boolean isFormTypeOf(String type) {
 		return "r".equals(type);
 	}
-	
+
 	@Override
 	public Figur clone(String[] figurArr) {
 		x = Integer.parseInt(figurArr[1]);
@@ -68,5 +68,27 @@ public class Rechteck extends GeschlosseneFigur {
 	public void setHoehe(int hoehe) {
 		this.hoehe = hoehe;
 	}
-	
+
+	@Override
+	protected boolean hasCursorFocus(int x, int y) {
+		boolean onBoundary = false;
+		if (
+				(x > this.x - selectionAccuracy && x < this.x + breite + selectionAccuracy) && 
+				(
+						(y > this.y - selectionAccuracy && y < this.y + selectionAccuracy) || 
+						(y > this.y + hoehe - selectionAccuracy && y < this.y + hoehe + selectionAccuracy)
+				)
+			)
+			onBoundary = true;
+		if (
+				(y > this.y - selectionAccuracy && y < this.y + hoehe + selectionAccuracy) && 
+				(
+						(x > this.x - selectionAccuracy && x < this.x + selectionAccuracy) || 
+						(x > this.x + breite - selectionAccuracy && x < this.x + breite + selectionAccuracy)
+				)
+			)
+			onBoundary = true;
+		return onBoundary;
+	}
+
 }

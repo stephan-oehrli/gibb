@@ -53,4 +53,10 @@ public class FigurGruppe extends Figur {
 	public Figur clone(String[] figurArr) {
 		return null;
 	}
+
+	@Override
+	protected boolean hasCursorFocus(int x, int y) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

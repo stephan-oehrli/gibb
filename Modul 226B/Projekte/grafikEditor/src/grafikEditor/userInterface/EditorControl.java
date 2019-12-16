@@ -15,10 +15,11 @@ import grafikEditor.figuren.Rechteck;
 import grafikEditor.figuren.Zeichnung;
 import grafikEditor.importExport.FigurLoader;
 
-final class EditorControl {
+final class EditorControl implements MousePosSubscriber{
 	private Zeichnung zeichnung = new Zeichnung();
 	private char figurTyp = 'a';
 	private Point ersterPunkt;
+	private Point primePos;
 	private Figur figur;
 	private List<FigurTypSubscriber> figurTypSubscribers = new ArrayList<>();
 
@@ -34,6 +35,10 @@ final class EditorControl {
 	public void erzeugeFigurMitErstemPunkt(Point ersterPunkt) {
 		this.ersterPunkt = ersterPunkt;
 		switch (figurTyp) {
+		case 'a':
+			figur = zeichnung.selectFigur(ersterPunkt);
+			primePos = new Point(figur.getX(), figur.getY());
+			break;
 		case 'r':
 			figur = new Rechteck(ersterPunkt.x, ersterPunkt.y, 0, 0);
 			break;
@@ -63,6 +68,9 @@ final class EditorControl {
 			int hoehe = zweiterPunkt.y - ersterPunkt.y;
 			
 			switch (figurTyp) {
+			case 'a':
+				figur.move(zweiterPunkt.x - (ersterPunkt.x - primePos.x), zweiterPunkt.y - (ersterPunkt.y - primePos.y));
+				break;
 			case 'r':
 				int x = (breite < 0) ? ersterPunkt.x + breite : ersterPunkt.x;
 				int y = (hoehe < 0) ? ersterPunkt.y + hoehe : ersterPunkt.y;
@@ -113,5 +121,13 @@ final class EditorControl {
 	public void prepareForNextFigur() {
 		if (figur != null) figur.setLinienFarbe(Color.BLACK);
 		figur = null;
+	}
+
+	@Override
+	public void update(Point mousePos) {
+		if (figurTyp == 'a') {
+			zeichnung.hover(mousePos);
+		}
+		
 	}
 }

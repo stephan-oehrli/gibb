@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 public abstract class Figur {
+	protected final int selectionAccuracy = 5;
 	protected int x;
 	protected int y;
 	protected int drehungInGrad;
@@ -16,9 +17,9 @@ public abstract class Figur {
 		this.linienFarbe = linienFarbe;
 	}
 
-	public void move(int deltaX, int deltaY) {
-		x += deltaX;
-		y += deltaY;
+	public void move(int x, int y) {
+		this.x = x;
+		this.y = y;
 	}
 
 	public void drehen(int grad) {
@@ -41,6 +42,14 @@ public abstract class Figur {
 		this.y = y;
 	}
 
+	public int getX() {
+		return x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
 	public void setLinienFarbe(Color linienFarbe) {
 		this.linienFarbe = linienFarbe;
 	}
@@ -57,5 +66,6 @@ public abstract class Figur {
 	public String toString() {
 		return this.getClass().getSimpleName().toLowerCase().charAt(0) + "," + x + "," + y;
 	}
-	
+
+	protected abstract boolean hasCursorFocus(int x, int y);
 }

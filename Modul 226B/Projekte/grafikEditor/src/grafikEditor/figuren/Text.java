@@ -52,4 +52,10 @@ public class Text extends Figur {
 		inhalt = figurArr[3];
 		return new Text(x, y, inhalt);
 	}
+
+	@Override
+	protected boolean hasCursorFocus(int x, int y) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

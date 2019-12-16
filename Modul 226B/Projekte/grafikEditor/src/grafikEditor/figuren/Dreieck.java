@@ -76,4 +76,10 @@ public class Dreieck extends GeschlosseneFigur {
 	public void setHoehe(int hoehe) {
 		this.hoehe = hoehe;
 	}
+
+	@Override
+	protected boolean hasCursorFocus(int x, int y) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

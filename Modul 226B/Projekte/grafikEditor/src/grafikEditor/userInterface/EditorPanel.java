@@ -20,6 +20,7 @@ final class EditorPanel extends JPanel implements FigurTypSubscriber {
 	EditorPanel(EditorControl control) {
 		editorControl = control;
 		editorControl.addFigurTypSubscriber(this);
+		addMousePosSubscriber(control);
 		setBackground(Color.white);
 		registerMouseListener();
 	}
@@ -49,6 +50,7 @@ final class EditorPanel extends JPanel implements FigurTypSubscriber {
 			@Override
 			public void mouseMoved(MouseEvent e) {
 				mousePosSubscribers.forEach(subscriber -> subscriber.update(e.getPoint()));
+				repaint();
 			}			
 		});
 	}

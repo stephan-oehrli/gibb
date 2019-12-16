@@ -1,7 +1,9 @@
 package grafikEditor.figuren;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Point;
 import java.awt.geom.AffineTransform;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,5 +51,26 @@ public class Zeichnung {
 	public void save() {
 		FigurSaver saver = new FigurSaver();
 		saver.save(zeichnungen);
+	}
+	
+	public void hover(Point mousePos) {
+		for (Figur figur : zeichnungen) {
+			if (figur.hasCursorFocus(mousePos.x, mousePos.y)) {
+				figur.setLinienDicke(3);
+				figur.setLinienFarbe(Color.red);
+			} else {
+				figur.setLinienDicke(1);
+				figur.setLinienFarbe(Color.BLACK);
+			}
+		}
+	}
+	
+	public Figur selectFigur(Point mousePos) {
+		for (Figur figur : zeichnungen) {
+			if (figur.hasCursorFocus(mousePos.x, mousePos.y)) {
+				return figur;
+			}
+		}
+		return null;
 	}
 }

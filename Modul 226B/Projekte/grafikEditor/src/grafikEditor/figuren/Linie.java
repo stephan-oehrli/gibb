@@ -81,5 +81,11 @@ public class Linie extends Figur {
 	public void setEndY(int endY) {
 		this.endY = endY;
 	}
+
+	@Override
+	protected boolean hasCursorFocus(int x, int y) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 }
