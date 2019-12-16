@@ -17,7 +17,7 @@ import grafikEditor.importExport.FigurLoader;
 
 final class EditorControl {
 	private Zeichnung zeichnung = new Zeichnung();
-	private char figurTyp;
+	private char figurTyp = 'a';
 	private Point ersterPunkt;
 	private Figur figur;
 	private List<FigurTypSubscriber> figurTypSubscribers = new ArrayList<>();
@@ -104,7 +104,6 @@ final class EditorControl {
 	
 	public void addFigurTypSubscriber(FigurTypSubscriber subscriber) {
 		figurTypSubscribers.add(subscriber);
-		setFigurTyp('a');
 	}
 	
 	public void removeFigurTypSubscriber(FigurTypSubscriber subscriber) {

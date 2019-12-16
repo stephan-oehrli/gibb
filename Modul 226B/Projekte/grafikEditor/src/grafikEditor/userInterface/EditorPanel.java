@@ -1,6 +1,7 @@
 package grafikEditor.userInterface;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
@@ -12,12 +13,13 @@ import java.util.List;
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
-final class EditorPanel extends JPanel {
+final class EditorPanel extends JPanel implements FigurTypSubscriber {
 	private EditorControl editorControl;
 	private List<MousePosSubscriber> mousePosSubscribers = new ArrayList<>();
 
 	EditorPanel(EditorControl control) {
 		editorControl = control;
+		editorControl.addFigurTypSubscriber(this);
 		setBackground(Color.white);
 		registerMouseListener();
 	}
@@ -65,5 +67,10 @@ final class EditorPanel extends JPanel {
 	
 	public void removeMousePosSubscriber(MousePosSubscriber subscriber) {
 		mousePosSubscribers.remove(subscriber);
+	}
+
+	@Override
+	public void update(char figurTyp) {
+		setCursor(new Cursor((figurTyp == 'a') ? Cursor.DEFAULT_CURSOR : Cursor.CROSSHAIR_CURSOR));
 	}
 }

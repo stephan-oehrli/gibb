@@ -24,6 +24,7 @@ public final class EditorFrame extends JFrame {
 	private EditorPanel editorPanel;
 
 	public EditorFrame(int breite, int hoehe) {
+		setLayout(new BorderLayout());
 		fensterEinmitten(breite, hoehe);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		erzeugeUndSetzeEditorPanel();
@@ -36,8 +37,7 @@ public final class EditorFrame extends JFrame {
 
 	private void erzeugeUndSetzeEditorPanel() {
 		editorPanel = new EditorPanel(editorControl);
-		setContentPane(editorPanel);
-		setLayout(new BorderLayout());
+		add(editorPanel, BorderLayout.CENTER);
 	}
 
 	private void fensterEinmitten(int breite, int hoehe) {

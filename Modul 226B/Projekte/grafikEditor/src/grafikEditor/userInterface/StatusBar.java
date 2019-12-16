@@ -35,7 +35,7 @@ public class StatusBar extends JPanel implements FigurTypSubscriber, MousePosSub
 
 	@Override
 	public void update(Point mousePos) {
-		lblMouseCoordinates.setText(String.format("Maus: x=%d, y=%d", mousePos.x, mousePos.y - 32));
+		lblMouseCoordinates.setText(String.format("Maus: x=%d, y=%d", mousePos.x, mousePos.y));
 		lblMouseCoordinates.invalidate();
 		validate();
 	}
