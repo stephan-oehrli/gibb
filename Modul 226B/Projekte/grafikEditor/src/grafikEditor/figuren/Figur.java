@@ -17,6 +17,16 @@ public abstract class Figur {
 		this.linienFarbe = linienFarbe;
 	}
 
+	public abstract void skalieren(float faktor);
+
+	public abstract void zeichneFigur(Graphics2D g2);
+
+	public abstract boolean isFormTypeOf(String type);
+	
+	public abstract Figur clone(String[] figurArr);
+
+	protected abstract boolean hasCursorFocus(int x, int y);
+
 	public void move(int x, int y) {
 		this.x = x;
 		this.y = y;
@@ -25,14 +35,6 @@ public abstract class Figur {
 	public void drehen(int grad) {
 		this.drehungInGrad = grad;
 	}
-
-	public abstract void skalieren(float faktor);
-
-	public abstract void zeichneFigur(Graphics2D g2);
-
-	public abstract boolean isFormTypeOf(String type);
-	
-	public abstract Figur clone(String[] figurArr);
 
 	public void setX(int x) {
 		this.x = x;
@@ -66,6 +68,4 @@ public abstract class Figur {
 	public String toString() {
 		return this.getClass().getSimpleName().toLowerCase().charAt(0) + "," + x + "," + y;
 	}
-
-	protected abstract boolean hasCursorFocus(int x, int y);
 }
