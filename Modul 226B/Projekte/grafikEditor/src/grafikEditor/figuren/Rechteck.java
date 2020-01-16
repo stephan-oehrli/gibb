@@ -69,6 +69,14 @@ public class Rechteck extends GeschlosseneFigur {
 		this.hoehe = hoehe;
 	}
 
+	public int getBreite() {
+		return breite;
+	}
+
+	public int getHoehe() {
+		return hoehe;
+	}
+
 	@Override
 	protected boolean hasCursorFocus(int x, int y) {
 		boolean onBoundary = false;

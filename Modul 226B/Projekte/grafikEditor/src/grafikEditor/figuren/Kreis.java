@@ -57,6 +57,10 @@ public class Kreis extends GeschlosseneFigur {
 	public void setRadius(int radius) {
 		this.radius = radius;
 	}
+	
+	public int getRadius() {
+		return radius;
+	}
 
 	@Override
 	protected boolean hasCursorFocus(int x, int y) {

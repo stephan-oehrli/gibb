@@ -77,9 +77,17 @@ public class Linie extends Figur {
 	public void setEndX(int endX) {
 		this.endX = endX;
 	}
+	
+	public int getEndX() {
+		return endX;
+	}
 
 	public void setEndY(int endY) {
 		this.endY = endY;
+	}
+	
+	public int getEndY() {
+		return endY;
 	}
 
 	@Override
