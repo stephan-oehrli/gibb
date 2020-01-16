@@ -17,8 +17,8 @@ import grafikEditor.figuren.Zeichnung;
 
 public class FigurLoader {
 
-	List<Figur> protoTypes = new ArrayList<>();
-	Zeichnung zeichnung = new Zeichnung();
+	private List<Figur> protoTypes = new ArrayList<>();
+	private Zeichnung zeichnung = new Zeichnung();
 	
 	public FigurLoader() {
 		createPrototypes();

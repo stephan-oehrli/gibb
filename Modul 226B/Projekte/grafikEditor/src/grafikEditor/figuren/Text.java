@@ -5,8 +5,8 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 
 public class Text extends Figur {
-	String inhalt;
-	Font schriftart = new Font("Arial", 0, 12);
+	private String inhalt;
+	private Font schriftart = new Font("Arial", 0, 12);
 
 	public Text(int x, int y, String inhalt) {
 		this(x, y, inhalt, null);

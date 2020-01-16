@@ -50,8 +50,7 @@ final class EditorPanel extends JPanel implements FigurTypSubscriber {
 			@Override
 			public void mouseMoved(MouseEvent e) {
 				mousePosSubscribers.forEach(subscriber -> subscriber.update(e.getPoint()));
-				repaint();
-			}			
+				repaint();			}			
 		});
 	}
 
