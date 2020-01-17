@@ -1,4 +1,4 @@
-package test;
+package grafikEditor.importExport;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -10,8 +10,6 @@ import grafikEditor.figuren.Figur;
 import grafikEditor.figuren.Kreis;
 import grafikEditor.figuren.Linie;
 import grafikEditor.figuren.Rechteck;
-import grafikEditor.importExport.FigurDAO;
-import grafikEditor.importExport.FigurParser;
 
 class FigurParserTest {
 
@@ -19,7 +17,7 @@ class FigurParserTest {
 	FigurParser parser = new FigurParser(figurDAO);
 	
 	@Test
-	void create3Figures() {
+	void testCreate3Figures() {
 		List<Figur> figuren = parser.parse();
 		assertEquals(3, figuren.size());
 	}
@@ -60,3 +58,4 @@ class FigurParserTest {
 	}
 
 }
+

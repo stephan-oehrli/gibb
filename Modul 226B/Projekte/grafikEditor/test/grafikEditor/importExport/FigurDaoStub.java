@@ -1,4 +1,4 @@
-package test;
+package grafikEditor.importExport;
 
 import grafikEditor.importExport.FigurDAO;
 
