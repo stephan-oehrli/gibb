@@ -1,11 +1,12 @@
-package insertionSort;
+package sortAlgorithms.insertionSort;
 
-import java.util.Random;
+import sortAlgorithms.ListGenerator;
 
 public class Main {
 
 	public static void main(String[] args) {
-		int[] unsortedList = generateRandomList(30000);
+		ListGenerator generator = new ListGenerator();
+		int[] unsortedList = generator.generateRandomList(30000);
 //		System.out.println(Arrays.toString(unsortedList));
 		long start = System.currentTimeMillis();
 		int[] sortedList = insertionSort(unsortedList);
@@ -24,14 +25,5 @@ public class Main {
 			liste[j + 1] = key;
 		}
 		return liste;
-	}
-	
-	private static int[] generateRandomList(int size) {
-		Random random = new Random();
-		int[] list = new int[size];
-		for (int i = 0; i < list.length; i++) {
-			list[i] = random.nextInt(100);
-		}
-		return list;
 	}
 }
